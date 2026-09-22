@@ -1,0 +1,3772 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galería Cristo</title>
+
+<style>
+/* ===========================
+   INTRODUCCIÓN
+=========================== */
+
+#intro{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+overflow:hidden;
+
+}
+
+#tituloIntro{
+text-align:center;
+animation: aparecer 3s ease;
+}
+
+#tituloIntro h1{
+font-family:"Times New Roman",serif;
+font-size:90px;
+color:white;
+letter-spacing:8px;
+margin:0;
+text-shadow:
+0 0 10px white,
+0 0 20px white,
+0 0 40px rgba(255,255,255,.6);
+animation:girar 18s linear infinite;
+}
+
+#tituloIntro h2{
+
+font-family:"Times New Roman",serif;
+font-size:55px;
+color:white;
+letter-spacing:5px;
+margin-top:20px;
+text-shadow:
+0 0 8px white,
+0 0 25px rgba(255,255,255,.5);
+}
+
+#tituloIntro p{
+margin-top:35px;
+font-size:22px;
+color:#d8d8d8;
+font-style:italic;
+letter-spacing:2px;
+
+}
+
+/* Giro */
+
+@keyframes girar{
+0%{
+transform:rotateY(0deg);
+}
+100%{
+transform:rotateY(360deg);
+}
+}
+/* Aparición */
+@keyframes aparecer{
+0%{
+opacity:0;
+transform:scale(.8);
+}
+100%{
+opacity:1;
+transform:scale(1);
+}
+
+}
+/* ====================================================== */
+/*                 CONFIGURACIÓN GENERAL                   */
+/* ====================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:linear-gradient(
+    180deg,
+    #02060f 0%,
+    #050b1c 40%,
+    #000000 100%);
+
+    overflow-x:hidden;
+    font-family:"Times New Roman",serif;
+    color:white;
+
+}
+/* ====================================================== */
+/*                  INTRODUCCIÓN                          */
+/* ====================================================== */
+
+#intro{
+
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+
+/* Fondo luminoso */
+
+#intro::before{
+content:"";
+position:absolute;
+width:900px;
+height:900px;
+background:radial-gradient(circle,
+rgba(255,215,120,.18),
+transparent 70%);
+filter:blur(40px);
+animation:luz 8s infinite alternate;
+}
+
+
+/* ====================================================== */
+/*                CONTENIDO INTRO                         */
+/* ====================================================== */
+
+#tituloIntro{
+position:relative;
+z-index:10;
+text-align:center;
+width:100%;
+max-width:1200px;
+animation:entrada 3s;
+
+}
+
+
+#tituloIntro h1{
+font-family:"Times New Roman",serif;
+font-size:170px;
+font-weight:bold;
+line-height:.9;
+letter-spacing:6px;
+color:white;
+text-transform:uppercase;
+text-shadow:
+0 0 8px white,
+0 0 18px rgba(255,255,255,.9),
+0 0 35px rgba(255,255,255,.8),
+0 0 70px rgba(255,215,120,.45);
+
+}
+
+
+#tituloIntro h2{
+margin-top:20px;
+font-family:"Times New Roman",serif;
+font-size:90px;
+font-weight:bold;
+letter-spacing:6px;
+color:white;
+text-shadow:
+0 0 8px white,
+0 0 18px rgba(255,255,255,.7),
+0 0 45px rgba(255,215,120,.4);
+
+}
+
+#tituloIntro p{
+margin-top:80px;
+font-size:32px;
+letter-spacing:3px;
+color:#d6b16c;
+font-style:italic;
+animation:subirBajar 2s infinite;
+}
+.scroll-indicador{
+margin-top:70px;
+font-size:22px;
+color:#d8b46f;
+animation:subirBajar 2s infinite;
+}
+/* ====================================================== */
+/*                PRIMERA ESTACIÓN                        */
+/* ====================================================== */
+
+#estacion1{
+width:100%;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:80px;
+
+}
+/* Contenedor */
+
+.contenedor-estacion{
+width:90%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:70px;
+}
+/* =====================================================
+   SEGUNDA ESTACIÓN
+   HISTORIA IZQUIERDA - MODELO 3D DERECHA
+===================================================== */
+
+#estacion2{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+}
+#estacion2 .informacion{
+    order:1;
+    width:48%;
+    animation:entradaDerecha 1.5s ease;
+}
+#estacion2 .modelo{
+    order:2;
+    width:48%;
+    height:650px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    animation:entradaIzquierda 1.5s ease;
+}
+#modelo3d2{
+    width:100%;
+    height:100%;
+}
+/* =====================================================
+   TERCERA ESTACIÓN
+   MODELO 3D IZQUIERDA - INFORMACIÓN DERECHA
+===================================================== */
+
+#estacion3{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:80px;
+
+}
+
+
+/* CONTENEDOR */
+
+#estacion3 .contenedor-estacion{
+
+    width:90%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:70px;
+
+}
+
+
+/* MODELO 3D IZQUIERDA */
+
+#estacion3 .modelo{
+
+    order:1;
+
+    width:48%;
+
+    height:650px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+/* INFORMACIÓN DERECHA */
+
+#estacion3 .informacion{
+
+    order:2;
+
+    width:48%;
+
+}
+
+
+/* CONTENEDOR DEL MODELO */
+
+#modelo3d3{
+
+    width:100%;
+
+    height:100%;
+
+}
+/* =====================================================
+   CUARTA ESTACIÓN
+   TEXTO IZQUIERDA - MODELO 3D DERECHA
+===================================================== */
+
+#estacion4{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:row;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:80px;
+
+}
+
+
+/* INFORMACIÓN IZQUIERDA */
+
+#estacion4 .informacion{
+
+    order:1;
+
+    width:48%;
+
+    animation:entradaDerecha 1.5s ease;
+
+}
+
+
+/* MODELO 3D DERECHA */
+
+#estacion4 .modelo{
+
+    order:2;
+
+    width:48%;
+
+    height:650px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    animation:entradaIzquierda 1.5s ease;
+
+}
+
+
+/* CONTENEDOR DEL MODELO */
+
+#modelo3d4{
+
+    width:100%;
+
+    height:100%;
+
+}
+/* =====================================================
+   QUINTA ESTACIÓN
+   MODELO 3D IZQUIERDA - TEXTO DERECHA
+===================================================== */
+
+#estacion5{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:80px;
+
+}
+
+
+#estacion5 .contenedor-estacion{
+
+    width:90%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:70px;
+
+}
+
+
+#estacion5 .modelo{
+
+    order:1;
+
+    width:48%;
+
+    height:650px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+#estacion5 .informacion{
+
+    order:2;
+
+    width:48%;
+
+}
+
+
+#modelo3d5{
+
+    width:100%;
+
+    height:100%;
+
+}
+/* =====================================================
+   SEXTA ESTACIÓN
+   TEXTO IZQUIERDA - MODELO 3D DERECHA
+===================================================== */
+
+#estacion6{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:row;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:80px;
+
+}
+
+
+#estacion6 .informacion{
+
+    order:1;
+
+    width:48%;
+
+}
+
+
+#estacion6 .modelo{
+
+    order:2;
+
+    width:48%;
+
+    height:650px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+#modelo3d6{
+
+    width:100%;
+
+    height:100%;
+
+}
+/* =====================================================
+   SÉPTIMA ESTACIÓN
+   MODELO 3D IZQUIERDA - TEXTO DERECHA
+===================================================== */
+
+#estacion7{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:80px;
+
+}
+
+
+#estacion7 .contenedor-estacion{
+
+    width:90%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:70px;
+
+}
+
+
+#estacion7 .modelo{
+
+    order:1;
+
+    width:48%;
+
+    height:650px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+#estacion7 .informacion{
+
+    order:2;
+
+    width:48%;
+
+}
+
+
+#modelo3d7{
+
+    width:100%;
+
+    height:100%;
+
+}
+/* =====================================================
+   OCTAVA ESTACIÓN
+   TEXTO IZQUIERDA - MODELO 3D DERECHA
+===================================================== */
+
+#estacion8{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:row;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:80px;
+
+}
+
+
+#estacion8 .informacion{
+
+    order:1;
+
+    width:48%;
+
+}
+
+
+#estacion8 .modelo{
+
+    order:2;
+
+    width:48%;
+
+    height:650px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+#modelo3d8{
+
+    width:100%;
+
+    height:100%;
+
+}
+/* =====================================================
+   NOVENA ESTACIÓN
+   MODELO 3D IZQUIERDA - TEXTO DERECHA
+===================================================== */
+
+#estacion9{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:80px;
+
+}
+
+
+#estacion9 .contenedor-estacion{
+
+    width:90%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:70px;
+
+}
+
+
+#estacion9 .modelo{
+
+    order:1;
+
+    width:48%;
+
+    height:650px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+#estacion9 .informacion{
+
+    order:2;
+
+    width:48%;
+
+}
+
+
+#modelo3d9{
+
+    width:100%;
+
+    height:100%;
+
+}
+/* =====================================================
+   DÉCIMA ESTACIÓN
+   TEXTO IZQUIERDA - MODELO 3D DERECHA
+===================================================== */
+
+#estacion10{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:row;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:80px;
+
+}
+
+
+#estacion10 .informacion{
+
+    order:1;
+
+    width:48%;
+
+}
+
+
+#estacion10 .modelo{
+
+    order:2;
+
+    width:48%;
+
+    height:650px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+#modelo3d10{
+
+    width:100%;
+
+    height:100%;
+
+}
+/* =====================================================
+   UNDÉCIMA ESTACIÓN
+   MODELO 3D IZQUIERDA - TEXTO DERECHA
+===================================================== */
+
+#estacion11{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:80px;
+
+}
+
+
+#estacion11 .contenedor-estacion{
+
+    width:90%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:70px;
+
+}
+
+
+#estacion11 .modelo{
+
+    order:1;
+
+    width:48%;
+
+    height:650px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+#estacion11 .informacion{
+
+    order:2;
+
+    width:48%;
+
+}
+
+
+#modelo3d11{
+
+    width:100%;
+
+    height:100%;
+
+}
+/* =====================================================
+   DUODÉCIMA ESTACIÓN
+   TEXTO IZQUIERDA - MODELO 3D DERECHA
+===================================================== */
+
+#estacion12{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:row;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:80px;
+
+}
+
+
+#estacion12 .informacion{
+
+    order:1;
+
+    width:48%;
+
+}
+
+
+#estacion12 .modelo{
+
+    order:2;
+
+    width:48%;
+
+    height:650px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+#modelo3d12{
+
+    width:100%;
+
+    height:100%;
+
+}
+/* =====================================================
+   ANIMACIONES
+===================================================== */
+@keyframes entradaDerecha{
+    from{
+        opacity:0;
+        transform:translateX(-100px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+@keyframes entradaIzquierda{
+    from{
+        opacity:0;
+        transform:translateX(100px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+/* ====================================================== */
+/*                 MODELO 3D                              */
+/* ===================================================== */
+.modelo{
+width:48%;
+height:650px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+#modelo3d{
+width:100%;
+height:100%;
+}
+/* ====================================================== */
+/*                TARJETA HISTORIA                        */
+/* ====================================================== */
+.informacion{
+width:48%;
+padding:45px;
+border-radius:25px;
+background:transparent;
+backdrop-filter:none;
+border:none;
+box-shadow:none;
+}
+/* Número Romano */
+.numero{
+display:block;
+font-size:80px;
+text-align:center;
+color:#d4a95d;
+margin-bottom:10px;
+}
+/* Títulos */
+.informacion h2{
+text-align:center;
+font-size:45px;
+margin-bottom:15px;
+}
+.informacion h3{
+text-align:center;
+font-size:28px;
+color:#e0c080;
+margin-bottom:25px;
+}
+
+.informacion h4{
+margin-top:18px;
+font-size:20px;
+color:#d8b46f;
+letter-spacing:2px;
+}
+/* Texto */
+.informacion p{
+margin-top:10px;
+font-size:22px;
+line-height:1.9;
+text-align:justify;
+color:#eeeeee;
+}
+
+hr{
+margin:20px 0;
+border:none;
+height:2px;
+background:linear-gradient(to right,
+transparent,
+#d8b46f,
+transparent);
+
+}
+/* =====================================================
+   MENÚ PRINCIPAL
+===================================================== */
+
+#menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 74px;
+
+    background: rgba(5,8,13,.82);
+
+    backdrop-filter: blur(12px);
+
+    display: flex;
+
+    justify-content: flex-start;
+
+    align-items: center;
+
+    gap: 42px;
+
+    padding-left: 35px;
+    padding-right: 65px;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+    box-shadow: 0 5px 25px rgba(0,0,0,.35);
+
+    z-index: 1000;
+}
+
+
+/* =====================================================
+   ENLACES DEL MENÚ
+===================================================== */
+
+#menu a{
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-family:Arial,sans-serif;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+
+    position:relative;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
+
+}
+
+
+/* =====================================================
+   LÍNEA DORADA AL PASAR EL MOUSE
+===================================================== */
+
+#menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0;
+    height:2px;
+
+    background:#d9b86c;
+
+    box-shadow:
+        0 0 8px
+        rgba(217,184,108,.6);
+
+    transition:
+        width .3s ease;
+
+}
+
+
+/* =====================================================
+   EFECTO HOVER
+===================================================== */
+
+#menu a:hover{
+
+    color:#d9b86c;
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+#menu a:hover::after{
+
+    width:100%;
+
+}
+/* ====================================================== */
+/*                  ANIMACIONES                           */
+/* ====================================================== */
+@keyframes entrada{
+
+0%{
+opacity:0;
+transform:translateY(80px);
+}
+100%{
+opacity:1;
+transform:translateY(0);
+}
+}
+@keyframes girar{
+0%{
+transform:rotateY(0deg);
+}
+100%{
+transform:rotateY(360deg);
+}
+}
+@keyframes subirBajar{
+0%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(15px);
+}
+100%{
+transform:translateY(0);
+}
+}
+@keyframes luz{
+0%{
+transform:scale(.9);
+}
+100%{
+transform:scale(1.2);
+}
+}
+</style>
+<script type="importmap">
+{
+    "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+}
+</script>
+</head>
+
+<body>
+
+<!-- =====================================================
+     MENÚ PRINCIPAL
+====================================================== -->
+
+<nav id="menu">
+
+    <a href="index.html">Inicio</a>
+
+    
+</nav>
+
+
+ 
+<div id="intro">
+
+    <div id="tituloIntro">
+        <h1>LAS ESTACIONES</h1>
+        <h2>DE LA VIA CRUCIS</h2>
+        <p>✦ Un recorrido por la pasion de Cristo ✦</p>
+    </div>
+</div>
+<!-- ========================================================= -->
+<!--                 PRIMERA ESTACIÓN                          -->
+<!-- ========================================================= -->
+<section id="estacion1">
+    <div class="contenedor-estacion">
+        <div class="modelo">
+            <div id="modelo3d"></div>
+        </div>
+        <div class="informacion">
+            <span class="numero">I
+            </span>
+            <h2>
+                PRIMERA ESTACION
+            </h2>
+            <h3>
+                Jesus arrodillado y agotado
+            </h3>
+            <hr>
+            <h4>
+                HISTORIA
+            </h4>
+            <p id="historia1"></p>
+            <br>
+            <h4>
+                SIGNIFICADO
+            </h4>
+            <p id="significado1"></p>
+            <br>
+            <h4>
+                AÑO
+            </h4>
+            <p id="anio1"></p>
+        </div>
+    </div>
+
+</section>
+<!-- =====================================================
+     SEGUNDA ESTACIÓN
+====================================================== -->
+<section id="estacion2" class="estacion">
+    <div class="informacion">
+        <span class="numero">II</span>
+        <h2>SEGUNDA ESTACION</h2>
+        <h3>JESUS CARGA CON LA CRUZ</h3>
+        <hr>
+        <h4>HISTORIA</h4>
+        <p id="historia2"></p>
+        <h4>SIGNIFICADO</h4>
+        <p id="significado2"></p>
+        <h4>AÑO</h4>
+        <p id="anio2"></p>
+    </div>
+    <div class="modelo">
+        <div id="modelo3d2"></div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     TERCERA ESTACIÓN
+     MODELO 3D IZQUIERDA - HISTORIA DERECHA
+========================================================= -->
+
+<section id="estacion3">
+
+    <div class="contenedor-estacion">
+
+        <!-- =======================================
+             MODELO 3D - LADO IZQUIERDO
+        ======================================== -->
+
+        <div class="modelo">
+
+            <div id="modelo3d3"></div>
+
+        </div>
+
+
+        <!-- =======================================
+             INFORMACIÓN - LADO DERECHO
+        ======================================== -->
+
+        <div class="informacion">
+
+            <span class="numero">III</span>
+
+            <h2>TERCERA ESTACION</h2>
+
+            <h3>JESUS CAE POR PRIMERA VEZ</h3>
+
+            <hr>
+
+            <h4>HISTORIA</h4>
+
+            <p id="historia3"></p>
+
+            <br>
+
+            <h4>SIGNIFICADO</h4>
+
+            <p id="significado3"></p>
+
+            <br>
+
+            <h4>AÑO</h4>
+
+            <p id="anio3"></p>
+
+        </div>
+
+    </div>
+
+</section>
+</section>
+
+
+<!-- =====================================================
+     CUARTA ESTACIÓN
+     TEXTO IZQUIERDA - MODELO 3D DERECHA
+===================================================== -->
+
+<section id="estacion4" class="estacion">
+
+    <!-- INFORMACIÓN A LA IZQUIERDA -->
+
+    <div class="informacion">
+
+        <span class="numero">IV</span>
+
+        <h2>CUARTA ESTACION</h2>
+
+        <h3>JESUS ENCUENTRA A SU MADRE</h3>
+
+        <hr>
+
+        <h4>HISTORIA</h4>
+
+        <p id="historia4"></p>
+
+        <h4>SIGNIFICADO</h4>
+
+        <p id="significado4"></p>
+
+        <h4>AÑO</h4>
+
+        <p id="anio4"></p>
+
+    </div>
+
+
+    <!-- MODELO 3D A LA DERECHA -->
+
+    <div class="modelo">
+
+        <div id="modelo3d4"></div>
+
+    </div>
+
+</section>
+<!-- =====================================================
+     QUINTA ESTACIÓN
+     MODELO 3D IZQUIERDA - TEXTO DERECHA
+===================================================== -->
+
+<section id="estacion5">
+
+    <div class="contenedor-estacion">
+
+        <!-- MODELO 3D IZQUIERDA -->
+
+        <div class="modelo">
+
+            <div id="modelo3d5"></div>
+
+        </div>
+
+
+        <!-- INFORMACIÓN DERECHA -->
+
+        <div class="informacion">
+
+            <span class="numero">V</span>
+
+            <h2>QUINTA ESTACION</h2>
+
+            <h3>SIMON DE CIRENE AYUDA A JESUS</h3>
+
+            <hr>
+
+            <h4>HISTORIA</h4>
+
+            <p id="historia5"></p>
+
+            <br>
+
+            <h4>SIGNIFICADO</h4>
+
+            <p id="significado5"></p>
+
+            <br>
+
+            <h4>AÑO</h4>
+
+            <p id="anio5"></p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     SEXTA ESTACIÓN
+     TEXTO IZQUIERDA - MODELO 3D DERECHA
+===================================================== -->
+
+<section id="estacion6" class="estacion">
+
+    <!-- INFORMACIÓN IZQUIERDA -->
+
+    <div class="informacion">
+
+        <span class="numero">VI</span>
+
+        <h2>SEXTA ESTACION</h2>
+
+        <h3>VERONICA LIMPIA EL ROSTRO DE JESUS</h3>
+
+        <hr>
+
+        <h4>HISTORIA</h4>
+
+        <p id="historia6"></p>
+
+        <br>
+
+        <h4>SIGNIFICADO</h4>
+
+        <p id="significado6"></p>
+
+        <br>
+
+        <h4>AÑO</h4>
+
+        <p id="anio6"></p>
+
+    </div>
+
+
+    <!-- MODELO 3D DERECHA -->
+
+    <div class="modelo">
+
+        <div id="modelo3d6"></div>
+
+    </div>
+
+</section>
+<!-- =====================================================
+     SÉPTIMA ESTACIÓN
+     MODELO 3D IZQUIERDA - TEXTO DERECHA
+===================================================== -->
+
+<section id="estacion7">
+
+    <div class="contenedor-estacion">
+
+        <!-- MODELO 3D IZQUIERDA -->
+
+        <div class="modelo">
+
+            <div id="modelo3d7"></div>
+
+        </div>
+
+
+        <!-- INFORMACIÓN DERECHA -->
+
+        <div class="informacion">
+
+            <span class="numero">VII</span>
+
+            <h2>SEPTIMA ESTACION</h2>
+
+            <h3>JESUS CAE POR SEGUNDA VEZ</h3>
+
+            <hr>
+
+            <h4>HISTORIA</h4>
+
+            <p id="historia7"></p>
+
+            <br>
+
+            <h4>SIGNIFICADO</h4>
+
+            <p id="significado7"></p>
+
+            <br>
+
+            <h4>AÑO</h4>
+
+            <p id="anio7"></p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =====================================================
+     OCTAVA ESTACIÓN
+     TEXTO IZQUIERDA - MODELO 3D DERECHA
+===================================================== -->
+
+<section id="estacion8" class="estacion">
+
+    <!-- INFORMACIÓN IZQUIERDA -->
+
+    <div class="informacion">
+
+        <span class="numero">VIII</span>
+
+        <h2>OCTAVA ESTACION</h2>
+
+        <h3>JESUS CONSUELA A LAS MUJERES DE JERUSALEN</h3>
+
+        <hr>
+
+        <h4>HISTORIA</h4>
+
+        <p id="historia8"></p>
+
+        <br>
+
+        <h4>SIGNIFICADO</h4>
+
+        <p id="significado8"></p>
+
+        <br>
+
+        <h4>AÑO</h4>
+
+        <p id="anio8"></p>
+
+    </div>
+
+
+    <!-- MODELO 3D DERECHA -->
+
+    <div class="modelo">
+
+        <div id="modelo3d8"></div>
+
+    </div>
+
+</section>
+<!-- =====================================================
+     NOVENA ESTACIÓN
+     MODELO 3D IZQUIERDA - TEXTO DERECHA
+===================================================== -->
+
+<section id="estacion9">
+
+    <div class="contenedor-estacion">
+
+        <!-- MODELO 3D IZQUIERDA -->
+
+        <div class="modelo">
+
+            <div id="modelo3d9"></div>
+
+        </div>
+
+
+        <!-- INFORMACIÓN DERECHA -->
+
+        <div class="informacion">
+
+            <span class="numero">IX</span>
+
+            <h2>NOVENA ESTACI0N</h2>
+
+            <h3>JESÚS CAE POR TERCERA VEZ</h3>
+
+            <hr>
+
+            <h4>HISTORIA</h4>
+
+            <p id="historia9"></p>
+
+            <br>
+
+            <h4>SIGNIFICADO</h4>
+
+            <p id="significado9"></p>
+
+            <br>
+
+            <h4>AÑO</h4>
+
+            <p id="anio9"></p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =====================================================
+     DÉCIMA ESTACIÓN
+     TEXTO IZQUIERDA - MODELO 3D DERECHA
+===================================================== -->
+
+<section id="estacion10" class="estacion">
+
+    <!-- INFORMACIÓN IZQUIERDA -->
+
+    <div class="informacion">
+
+        <span class="numero">X</span>
+
+        <h2>DECIMA ESTACION</h2>
+
+        <h3>JESUS ES DESPOJADO DE SUS VESTIDURAS</h3>
+
+        <hr>
+
+        <h4>HISTORIA</h4>
+
+        <p id="historia10"></p>
+
+        <br>
+
+        <h4>SIGNIFICADO</h4>
+
+        <p id="significado10"></p>
+
+        <br>
+
+        <h4>AÑO</h4>
+
+        <p id="anio10"></p>
+
+    </div>
+
+
+    <!-- MODELO 3D DERECHA -->
+
+    <div class="modelo">
+
+        <div id="modelo3d10"></div>
+
+    </div>
+
+</section>
+<!-- =====================================================
+     UNDÉCIMA ESTACIÓN
+     MODELO 3D IZQUIERDA - TEXTO DERECHA
+===================================================== -->
+
+<section id="estacion11">
+
+    <div class="contenedor-estacion">
+
+        <!-- MODELO 3D IZQUIERDA -->
+
+        <div class="modelo">
+
+            <div id="modelo3d11"></div>
+
+        </div>
+
+
+        <!-- INFORMACIÓN DERECHA -->
+
+        <div class="informacion">
+
+            <span class="numero">XI</span>
+
+            <h2>UNDECIMA ESTACION</h2>
+
+            <h3>JESUS ES CLAVADO EN LA CRUZ</h3>
+
+            <hr>
+
+            <h4>HISTORIA</h4>
+
+            <p id="historia11"></p>
+
+            <br>
+
+            <h4>SIGNIFICADO</h4>
+
+            <p id="significado11"></p>
+
+            <br>
+
+            <h4>AÑO</h4>
+
+            <p id="anio11"></p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =====================================================
+     DUODÉCIMA ESTACIÓN
+     TEXTO IZQUIERDA - MODELO 3D DERECHA
+===================================================== -->
+
+<section id="estacion12" class="estacion">
+
+    <!-- INFORMACIÓN IZQUIERDA -->
+
+    <div class="informacion">
+
+        <span class="numero">XII</span>
+
+        <h2>DUODECIMA ESTACION</h2>
+
+        <h3>JESUS MUERE EN LA CRUZ</h3>
+
+        <hr>
+
+        <h4>HISTORIA</h4>
+
+        <p id="historia12"></p>
+
+        <br>
+
+        <h4>SIGNIFICADO</h4>
+
+        <p id="significado12"></p>
+
+        <br>
+
+        <h4>AÑO</h4>
+
+        <p id="anio12"></p>
+
+    </div>
+
+
+    <!-- MODELO 3D DERECHA -->
+
+    <div class="modelo">
+
+        <div id="modelo3d12"></div>
+
+    </div>
+
+</section>
+<!-- ========================================================= -->
+<!--               HASTA LA ESTACIÓN XIV                       -->
+<!-- ========================================================= -->
+
+<section id="estacion14">
+
+</section>
+    </div>
+
+</div>
+<script type="module">
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
+
+/*=========================================================
+        MODELO 3D - PRIMERA ESTACIÓN
+=========================================================*/
+
+const escena = new THREE.Scene();
+const contenedor3D = document.getElementById("modelo3d");
+const camara = new THREE.PerspectiveCamera(35,contenedor3D.clientWidth / contenedor3D.clientHeight,0.1,1000);
+
+const renderer = new THREE.WebGLRenderer({alpha:true,antialias:true});
+
+renderer.setSize(
+contenedor3D.clientWidth,
+contenedor3D.clientHeight
+);
+
+renderer.setPixelRatio(window.devicePixelRatio);
+contenedor3D.appendChild(renderer.domElement);
+
+const luzAmbiente = new THREE.AmbientLight(0xffffff,2);
+escena.add(luzAmbiente);
+
+const luzDireccional = new THREE.DirectionalLight(0xffffff,5);
+luzDireccional.position.set(8,10,8);
+escena.add(luzDireccional);
+/*=========================
+      CARGAR MODELO
+=========================*/
+const loader = new GLTFLoader();
+loader.setMeshoptDecoder(MeshoptDecoder);
+
+let modelo;
+loader.load(
+
+"./estacion1.glb",
+
+function(gltf){
+
+modelo = gltf.scene;
+modelo.scale.set(20,20,20);
+modelo.position.set(1,-10,-10);
+
+escena.add(modelo);
+
+},
+undefined,
+function(error){
+console.log(error);
+}
+
+);
+/*=========================
+      CONTROLES
+=========================*/
+camara.position.set(0,4,45);
+
+const controles = new OrbitControls(
+camara,
+renderer.domElement
+);
+
+controles.enablePan = false;
+controles.enableZoom = false;
+controles.enableDamping = true;
+/*=========================
+      ANIMACIÓN
+=========================*/
+function animar(){
+requestAnimationFrame(animar);
+
+if(modelo){
+
+modelo.rotation.y += 0.003;
+
+}
+
+controles.update();
+
+renderer.render(
+escena,
+camara
+);
+
+}
+animar();
+/*=========================================================
+        MODELO 3D - SEGUNDA ESTACIÓN
+=========================================================*/
+const escena2 = new THREE.Scene();
+const contenedor3D2 = document.getElementById("modelo3d2");
+const camara2 = new THREE.PerspectiveCamera(35,contenedor3D2.clientWidth / contenedor3D2.clientHeight, 0.1, 1000);
+const renderer2 = new THREE.WebGLRenderer({
+    alpha:true,
+    antialias:true
+});
+
+renderer2.setSize(
+    contenedor3D2.clientWidth,
+    contenedor3D2.clientHeight
+);
+
+renderer2.setPixelRatio(window.devicePixelRatio);
+contenedor3D2.appendChild(renderer2.domElement);
+
+const luzAmbiente2 = new THREE.AmbientLight(0xffffff,2);
+escena2.add(luzAmbiente2);
+
+const luzDireccional2 = new THREE.DirectionalLight( 0xffffff, 5);
+luzDireccional2.position.set(8,108);
+
+escena2.add(luzDireccional2);
+/*=========================================================
+        CARGAR SEGUNDO MODELO
+=========================================================*/
+const loader2 = new GLTFLoader();
+loader2.setMeshoptDecoder(MeshoptDecoder);
+let modelo2;
+loader2.load(
+    "./estacion2.glb",
+    function(gltf){
+        modelo2 = gltf.scene;
+        modelo2.scale.set(18,18,18);
+        modelo2.position.set( 1, -5, 0);
+        escena2.add(modelo2);
+    },
+
+    undefined,
+    function(error){
+        console.log(
+            "Error cargando Segunda Estación:",
+            error
+        );
+    }
+);
+/*=========================================================
+        CÁMARA
+=========================================================*/
+camara2.position.set(0,5,40);
+/*=========================================================
+        CONTROLES
+=========================================================*/
+const controles2 = new OrbitControls(
+    camara2,
+    renderer2.domElement
+);
+
+controles2.enablePan = false;
+controles2.enableZoom = false;
+controles2.enableDamping = true;
+controles2.dampingFactor = 0.05;
+/*=========================================================
+        ANIMACIÓN DEL MODELO
+=========================================================*/
+function animarModelo2(){
+    requestAnimationFrame(
+        animarModelo2
+    );
+    if(modelo2){
+        modelo2.rotation.y += 0.003;
+    }
+    controles2.update();
+    renderer2.render(
+        escena2,
+        camara2
+    );
+}
+animarModelo2();
+/*=========================================================
+        MODELO 3D - TERCERA ESTACIÓN
+=========================================================*/
+
+const escena3 = new THREE.Scene();
+const contenedor3D3 = document.getElementById("modelo3d3");
+const camara3 = new THREE.PerspectiveCamera(35, contenedor3D3.clientWidth / contenedor3D3.clientHeight, 0.1, 1000);
+const renderer3 = new THREE.WebGLRenderer({ alpha:true,antialias:true});
+
+
+renderer3.setSize(contenedor3D3.clientWidth, contenedor3D3.clientHeight);
+renderer3.setPixelRatio(window.devicePixelRatio);
+contenedor3D3.appendChild(renderer3.domElement);
+/*=========================================================
+        LUCES
+=========================================================*/
+const luzAmbiente3 =  new THREE.AmbientLight(   0xffffff, 2);
+escena3.add( luzAmbiente3);
+const luzDireccional3 = new THREE.DirectionalLight( 0xffffff, 5);
+luzDireccional3.position.set(8,10,8);
+escena3.add(luzDireccional3);
+/*=========================================================
+        CARGAR TERCER MODELO
+=========================================================*/
+
+const loader3 =  new GLTFLoader();
+loader3.setMeshoptDecoder( MeshoptDecoder);
+let modelo3;
+
+loader3.load(
+     "./estacion3.glb",
+
+    function(gltf){
+
+        modelo3 =  gltf.scene;
+        modelo3.scale.set( 18,  18, 18);
+        modelo3.position.set( 1, -5, 0);
+
+        escena3.add(  modelo3);
+
+    },
+
+
+    undefined,
+
+
+    function(error){
+
+        console.log(  "Error cargando Tercera Estación:", error  );
+    }
+);
+
+/*=========================================================
+        CÁMARA
+=========================================================*/
+
+camara3.position.set( 0, 5, 40);
+
+/*=========================================================
+        CONTROLES
+=========================================================*/
+
+const controles3 = new OrbitControls(camara3, renderer3.domElement);
+
+controles3.enablePan = false;
+controles3.enableZoom = false;
+controles3.enableDamping = true;
+controles3.dampingFactor = 0.05;
+
+
+/*=========================================================
+        ANIMACIÓN
+=========================================================*/
+
+function animarModelo3(){
+
+    requestAnimationFrame(
+        animarModelo3
+    );
+
+
+    if(modelo3){
+
+        modelo3.rotation.y += 0.003;
+
+    }
+
+
+    controles3.update();
+
+
+    renderer3.render( escena3, camara3);
+
+}
+
+
+animarModelo3();
+/*=========================================================
+        MODELO 3D - CUARTA ESTACIÓN
+=========================================================*/
+
+const escena4 = new THREE.Scene();
+const contenedor3D4 =document.getElementById("modelo3d4");
+const camara4 =new THREE.PerspectiveCamera( 35, contenedor3D4.clientWidth / contenedor3D4.clientHeight, 0.1,  1000 );
+const renderer4 = new THREE.WebGLRenderer({ alpha:true,  antialias:true });
+
+
+renderer4.setSize( contenedor3D4.clientWidth, contenedor3D4.clientHeight);
+renderer4.setPixelRatio( window.devicePixelRatio);
+contenedor3D4.appendChild(renderer4.domElement);
+/*=========================================================
+        LUCES
+=========================================================*/
+
+const luzAmbiente4 = new THREE.AmbientLight( 0xffffff,  2  );
+escena4.add( luzAmbiente4);
+const luzDireccional4 = new THREE.DirectionalLight(   0xffffff,   5 );
+luzDireccional4.position.set( 8,10, 8);
+escena4.add( luzDireccional4);
+
+/*=========================================================
+        CARGAR MODELO
+=========================================================*/
+const loader4 = new GLTFLoader();
+loader4.setMeshoptDecoder( MeshoptDecoder);
+
+
+let modelo4;
+
+
+/*
+    POR AHORA UTILIZAMOS EL MODELO
+    DE LA TERCERA ESTACIÓN.
+
+    MAÑANA CAMBIAMOS SOLAMENTE
+    EL NOMBRE DEL ARCHIVO.
+*/
+
+loader4.load(
+
+    "./estacion4.glb",
+
+    function(gltf){
+
+        modelo4 =  gltf.scene;
+        modelo4.scale.set(  18,18, 18 );
+        modelo4.position.set(  1,  -9,  0);
+        escena4.add(  modelo4);
+
+    },
+
+
+    undefined,
+
+
+    function(error){
+
+        console.log( "Error cargando Cuarta Estación:",  error );
+
+    }
+
+);
+
+
+/*=========================================================
+        CÁMARA
+=========================================================*/
+
+camara4.position.set(  0, 5, 40);
+
+
+/*=========================================================
+        CONTROLES
+=========================================================*/
+
+const controles4 =
+    new OrbitControls(camara4, renderer4.domElement);
+
+
+controles4.enablePan = false;
+controles4.enableZoom = false;
+controles4.enableDamping = true;
+controles4.dampingFactor = 0.05;
+
+/*=========================================================
+        ANIMACIÓN
+=========================================================*/
+
+function animarModelo4(){
+
+    requestAnimationFrame( animarModelo4);
+
+
+    if(modelo4){
+        modelo4.rotation.y += 0.003;
+
+    }
+
+
+    controles4.update();
+
+
+    renderer4.render(  escena4, camara4);
+
+}
+
+
+animarModelo4();
+/*=========================================================
+        MODELO 3D - QUINTA ESTACIÓN
+=========================================================*/
+
+const escena5 = new THREE.Scene();
+const contenedor3D5 =  document.getElementById("modelo3d5");
+const camara5 = new THREE.PerspectiveCamera(  35, contenedor3D5.clientWidth / contenedor3D5.clientHeight, 0.1, 1000 );
+const renderer5 = new THREE.WebGLRenderer({alpha:true, antialias:true });
+
+
+renderer5.setSize( contenedor3D5.clientWidth,contenedor3D5.clientHeight);
+renderer5.setPixelRatio(  window.devicePixelRatio);
+contenedor3D5.appendChild(  renderer5.domElement);
+
+/*=========================
+        LUCES
+=========================*/
+
+const luzAmbiente5 =  new THREE.AmbientLight(   0xffffff,2);
+escena5.add(luzAmbiente5);
+const luzDireccional5 =new THREE.DirectionalLight(    0xffffff,   5 );
+
+luzDireccional5.position.set(  8, 10,8);
+escena5.add(  luzDireccional5);
+
+
+/*=========================================================
+        CARGAR MODELO PROVISIONAL
+=========================================================*/
+
+const loader5 = new GLTFLoader();
+
+loader5.setMeshoptDecoder( MeshoptDecoder);
+
+let modelo5;
+loader5.load(
+
+    "./estacion5.glb",
+
+    function(gltf){
+
+        modelo5 = gltf.scene;
+        modelo5.scale.set( 18, 18, 18 );
+        modelo5.position.set( 1, -9,  0);
+        escena5.add(   modelo5 );
+
+    },
+
+    undefined,
+
+    function(error){
+
+        console.log(  "Error cargando Quinta Estación:",error  );
+    }
+);
+/*=========================================================
+        CÁMARA
+=========================================================*/
+camara5.position.set( 0, 5, 40);
+/*=========================================================
+        CONTROLES
+=========================================================*/
+
+const controles5 = new OrbitControls( camara5, renderer5.domElement );
+
+
+controles5.enablePan = false;
+controles5.enableZoom = false;
+controles5.enableDamping = true;
+controles5.dampingFactor = 0.05;
+
+
+/*=========================================================
+        ANIMACIÓN
+=========================================================*/
+
+function animarModelo5(){
+
+    requestAnimationFrame(  animarModelo5 );
+
+    if(modelo5){
+
+        modelo5.rotation.y += 0.003;
+
+    }
+
+    controles5.update();
+
+    renderer5.render(  escena5, camara5
+    );
+
+}
+
+animarModelo5();
+/*=========================================================
+        MODELO 3D - SEXTA ESTACIÓN
+=========================================================*/
+
+const escena6 = new THREE.Scene();
+const contenedor3D6 = document.getElementById("modelo3d6");
+const camara6 = new THREE.PerspectiveCamera(  35,  contenedor3D6.clientWidth / contenedor3D6.clientHeight, 0.1, 1000 );
+const renderer6 =  new THREE.WebGLRenderer({  alpha:true, antialias:true });
+
+
+renderer6.setSize( contenedor3D6.clientWidth, contenedor3D6.clientHeight);
+renderer6.setPixelRatio( window.devicePixelRatio);
+contenedor3D6.appendChild( renderer6.domElement);
+/*=========================
+        LUCES
+=========================*/
+
+const luzAmbiente6 =  new THREE.AmbientLight( 0xffffff, 2);
+escena6.add(  luzAmbiente6);
+const luzDireccional6 = new THREE.DirectionalLight(  0xffffff,  5 );
+
+luzDireccional6.position.set( 8, 10, 8);
+escena6.add( luzDireccional6);
+/*=========================================================
+        CARGAR MODELO PROVISIONAL
+=========================================================*/
+
+const loader6 =  new GLTFLoader();
+loader6.setMeshoptDecoder( MeshoptDecoder);
+let modelo6;
+loader6.load(
+
+    "./estacion6.glb",
+
+    function(gltf){
+        modelo6 = gltf.scene;
+        modelo6.scale.set(   18, 18,18);
+        modelo6.position.set( 1, -9,0);
+        escena6.add(  modelo6);
+    },
+
+    undefined,
+
+    function(error){
+
+        console.log(
+            "Error cargando Sexta Estación:",
+            error
+        );
+
+    }
+
+);
+
+
+/*=========================================================
+        CÁMARA
+=========================================================*/
+camara6.position.set( 0, 5, 40);
+/*=========================================================
+        CONTROLES
+=========================================================*/
+
+const controles6 =new OrbitControls( camara6,renderer6.domElement );
+controles6.enablePan = false;
+controles6.enableZoom = false;
+controles6.enableDamping = true;
+controles6.dampingFactor = 0.05;
+/*=========================================================
+        ANIMACIÓN
+=========================================================*/
+
+function animarModelo6(){
+
+    requestAnimationFrame(
+        animarModelo6
+    );
+
+    if(modelo6){
+
+        modelo6.rotation.y += 0.003;
+
+    }
+
+    controles6.update();
+
+    renderer6.render(escena6, camara6);
+}
+
+animarModelo6();
+/*=========================================================
+        MODELO 3D - SÉPTIMA ESTACIÓN
+=========================================================*/
+
+const escena7 = new THREE.Scene();
+const contenedor3D7 = document.getElementById("modelo3d7");
+const camara7 = new THREE.PerspectiveCamera( 35, contenedor3D7.clientWidth / contenedor3D7.clientHeight, 0.1,1000  );
+const renderer7 =  new THREE.WebGLRenderer({   alpha:true,antialias:true });
+
+
+renderer7.setSize( contenedor3D7.clientWidth,contenedor3D7.clientHeight);
+renderer7.setPixelRatio( window.devicePixelRatio);
+contenedor3D7.appendChild( renderer7.domElement);
+/*=========================================================
+        LUCES
+=========================================================*/
+const luzAmbiente7 =new THREE.AmbientLight( 0xffffff, 2 );
+escena7.add(luzAmbiente7);
+const luzDireccional7 = new THREE.DirectionalLight(  0xffffff, 5);
+luzDireccional7.position.set( 8,10,8);
+
+escena7.add(luzDireccional7);
+/*=========================================================
+        CARGAR MODELO PROVISIONAL
+=========================================================*/
+const loader7 = new GLTFLoader();
+
+loader7.setMeshoptDecoder(   MeshoptDecoder);
+let modelo7;
+
+loader7.load(
+
+    "./estacion7.glb",
+
+    function(gltf){
+
+        modelo7 = gltf.scene;
+        modelo7.scale.set(18, 18, 18);
+        modelo7.position.set(  1,  -7,  0);
+
+        escena7.add(  modelo7);
+
+    },
+
+    undefined,
+
+    function(error){
+
+        console.log(
+            "Error cargando Séptima Estación:",
+            error
+        );
+
+    }
+
+);
+
+
+/*=========================================================
+        CÁMARA
+=========================================================*/
+camara7.position.set( 0,5,40);
+/*=========================================================
+        CONTROLES
+=========================================================*/
+
+const controles7 = new OrbitControls( camara7, renderer7.domElement );
+controles7.enablePan = false;
+controles7.enableZoom = false;
+controles7.enableDamping = true;
+controles7.dampingFactor = 0.05;
+/*=========================================================
+        ANIMACIÓN
+=========================================================*/
+function animarModelo7(){
+    requestAnimationFrame(animarModelo7 );
+
+    if(modelo7){
+     modelo7.rotation.y += 0.003;
+    }
+    controles7.update();
+    renderer7.render( escena7, camara7 );
+
+}
+
+animarModelo7();
+/*=========================================================
+        MODELO 3D - OCTAVA ESTACIÓN
+=========================================================*/
+const escena8 = new THREE.Scene();
+const contenedor3D8 = document.getElementById("modelo3d8");
+const camara8 =  new THREE.PerspectiveCamera( 35, contenedor3D8.clientWidth / contenedor3D8.clientHeight, 0.1,1000);
+const renderer8 =new THREE.WebGLRenderer({alpha:true,  antialias:true });
+
+
+renderer8.setSize( contenedor3D8.clientWidth, contenedor3D8.clientHeight);
+renderer8.setPixelRatio( window.devicePixelRatio);
+contenedor3D8.appendChild(  renderer8.domElement);
+/*=========================================================
+        LUCES
+=========================================================*/
+const luzAmbiente8 = new THREE.AmbientLight(     0xffffff,    );
+escena8.add( luzAmbiente8);
+const luzDireccional8 = new THREE.DirectionalLight(   0xffffff,   5);
+luzDireccional8.position.set( 8,10,8);
+escena8.add( luzDireccional8);
+
+/*=========================================================
+        CARGAR MODELO PROVISIONAL
+=========================================================*/
+const loader8 =new GLTFLoader();
+loader8.setMeshoptDecoder( MeshoptDecoder);
+let modelo8;
+loader8.load(
+
+    "./estacion8.glb",
+
+    function(gltf){
+
+        modelo8 = gltf.scene;
+        modelo8.scale.set( 18, 18, 18);
+        modelo8.position.set(  1,  -3,  0);
+
+        escena8.add( modelo8);
+    },
+
+    undefined,
+
+    function(error){
+
+        console.log(
+            "Error cargando Octava Estación:",
+            error
+        );
+
+    }
+
+);
+
+
+/*=========================================================
+        CÁMARA
+=========================================================*/
+camara8.position.set( 0, 5, 40);
+/*=========================================================
+        CONTROLES
+=========================================================*/
+const controles8 =new OrbitControls(  camara8,renderer8.domElement );
+
+controles8.enablePan = false;
+controles8.enableZoom = false;
+controles8.enableDamping = true;
+controles8.dampingFactor = 0.05;
+/*=========================================================
+        ANIMACIÓN
+=========================================================*/
+function animarModelo8(){
+    requestAnimationFrame(
+        animarModelo8
+    );
+
+    if(modelo8){
+
+        modelo8.rotation.y += 0.003;
+
+    }
+
+    controles8.update();
+    renderer8.render( escena8, camara8 );
+}
+
+animarModelo8();
+/*=========================================================
+        MODELO 3D - NOVENA ESTACIÓN
+=========================================================*/
+
+const escena9 = new THREE.Scene();
+const contenedor3D9 = document.getElementById("modelo3d9");
+const camara9 = new THREE.PerspectiveCamera( 35,contenedor3D9.clientWidth /contenedor3D9.clientHeight,0.1, 1000);
+const renderer9 = new THREE.WebGLRenderer({ alpha:true, antialias:true });
+
+renderer9.setSize(contenedor3D9.clientWidth,contenedor3D9.clientHeight);
+renderer9.setPixelRatio( window.devicePixelRatio);
+contenedor3D9.appendChild(renderer9.domElement);
+/*=========================================================
+        LUCES
+=========================================================*/
+const luzAmbiente9 =  new THREE.AmbientLight( 0xffffff, 2);
+escena9.add( luzAmbiente9);
+
+const luzDireccional9 =new THREE.DirectionalLight( 0xffffff, 5 );
+luzDireccional9.position.set( 8,10,8);
+escena9.add(luzDireccional9);
+/*=========================================================
+        CARGAR MODELO PROVISIONAL
+=========================================================*/
+const loader9 =  new GLTFLoader();
+loader9.setMeshoptDecoder( MeshoptDecoder);
+
+let modelo9;
+
+
+loader9.load(
+
+    "./estacion9.glb",
+
+    function(gltf){
+
+        modelo9 = gltf.scene;
+        modelo9.scale.set(18,18,18);
+        modelo9.position.set( 1, -9, 0);
+
+        escena9.add( modelo9 );
+
+    },
+
+    undefined,
+
+    function(error){
+
+        console.log(
+            "Error cargando Novena Estación:",
+            error
+        );
+
+    }
+
+);
+
+
+/*=========================================================
+        CÁMARA
+=========================================================*/
+camara9.position.set( 0, 5, 40);
+/*=========================================================
+        CONTROLES
+=========================================================*/
+
+const controles9 =
+    new OrbitControls(
+
+        camara9,
+
+        renderer9.domElement
+
+    );
+
+
+controles9.enablePan = false;
+controles9.enableZoom = false;
+controles9.enableDamping = true;
+controles9.dampingFactor = 0.05;
+/*=========================================================
+        ANIMACIÓN
+=========================================================*/
+
+function animarModelo9(){
+
+    requestAnimationFrame(
+        animarModelo9
+    );
+
+    if(modelo9){
+
+        modelo9.rotation.y += 0.003;
+
+    }
+
+    controles9.update();
+    renderer9.render(escena9,camara9);
+}
+
+animarModelo9();
+/*=========================================================
+        MODELO 3D - DÉCIMA ESTACIÓN
+========================================================*/
+const escena10 = new THREE.Scene();
+const contenedor3D10 =document.getElementById("modelo3d10");
+const camara10 = new THREE.PerspectiveCamera( 35, contenedor3D10.clientWidth / contenedor3D10.clientHeight, 0.1, 1000 );
+const renderer10 =new THREE.WebGLRenderer({ alpha:true,antialias:true });
+
+
+renderer10.setSize( contenedor3D10.clientWidth,contenedor3D10.clientHeight);
+renderer10.setPixelRatio(window.devicePixelRatio);
+contenedor3D10.appendChild(renderer10.domElement);
+/*=========================================================
+        LUCES
+=========================================================*/
+const luzAmbiente10 = new THREE.AmbientLight(  0xffffff, 2);
+escena10.add( luzAmbiente10);
+
+const luzDireccional10 =new THREE.DirectionalLight(   0xffffff,  5);
+luzDireccional10.position.set(8,10,8);
+
+escena10.add( luzDireccional10);
+/*=========================================================
+        CARGAR MODELO PROVISIONAL
+=========================================================*/
+const loader10 =new GLTFLoader();
+loader10.setMeshoptDecoder(  MeshoptDecoder);
+let modelo10;
+loader10.load(
+
+    "./estacion10.glb",
+
+    function(gltf){
+
+        modelo10 =
+gltf.scene;
+
+        modelo10.scale.set(   18,18, 18);
+        modelo10.position.set( 1,  -9,  0);
+
+        escena10.add(  modelo10 );
+
+    },
+
+    undefined,
+
+    function(error){
+
+        console.log(
+            "Error cargando Décima Estación:",
+            error
+        );
+
+    }
+
+);
+
+
+/*=========================================================
+        CÁMARA
+=========================================================*/
+camara10.position.set(  0,  5,  40);
+/*=========================================================
+        CONTROLES
+=========================================================*/
+
+const controles10 =
+    new OrbitControls(
+
+        camara10,
+
+        renderer10.domElement
+
+    );
+
+
+controles10.enablePan = false;
+controles10.enableZoom = false;
+controles10.enableDamping = true;
+controles10.dampingFactor = 0.05;
+/*=========================================================
+        ANIMACIÓN
+=========================================================*/
+function animarModelo10(){
+
+    requestAnimationFrame(
+        animarModelo10
+    );
+
+    if(modelo10){
+
+        modelo10.rotation.y += 0.003;
+
+    }
+
+    controles10.update();
+    renderer10.render( escena10, camara10  );
+
+}
+
+animarModelo10();
+/*=========================================================
+        MODELO 3D - UNDÉCIMA ESTACIÓN
+=========================================================*/
+
+const escena11 = new THREE.Scene();
+const contenedor3D11 = document.getElementById("modelo3d11");
+const camara11 = new THREE.PerspectiveCamera( 35,  contenedor3D11.clientWidth /  contenedor3D11.clientHeight,  0.1,   1000 );
+const renderer11 =  new THREE.WebGLRenderer({  alpha:true,  antialias:true });
+
+renderer11.setSize(
+
+    contenedor3D11.clientWidth,
+
+    contenedor3D11.clientHeight
+
+);
+
+
+renderer11.setPixelRatio(
+    window.devicePixelRatio
+);
+
+
+contenedor3D11.appendChild(
+    renderer11.domElement
+);
+
+
+/*=========================================================
+        LUCES
+=========================================================*/
+
+const luzAmbiente11 =
+    new THREE.AmbientLight(
+        0xffffff,
+        2
+    );
+
+escena11.add(
+    luzAmbiente11
+);
+
+
+const luzDireccional11 =
+    new THREE.DirectionalLight(
+        0xffffff,
+        5
+    );
+
+
+luzDireccional11.position.set(
+    8,
+    10,
+    8
+);
+
+
+escena11.add(
+    luzDireccional11
+);
+
+
+/*=========================================================
+        CARGAR MODELO PROVISIONAL
+=========================================================*/
+
+const loader11 =
+    new GLTFLoader();
+
+loader11.setMeshoptDecoder(
+    MeshoptDecoder
+);
+
+let modelo11;
+
+
+loader11.load(
+
+    "./estacion11.glb",
+
+    function(gltf){
+
+        modelo11 =
+            gltf.scene;
+
+        modelo11.scale.set( 18, 18, 18 );
+        modelo11.position.set(  1, - 10,  0);
+
+        escena11.add(
+            modelo11
+        );
+
+    },
+
+    undefined,
+
+    function(error){
+
+        console.log(
+            "Error cargando Undécima Estación:",
+            error
+        );
+
+    }
+
+);
+
+
+/*=========================================================
+        CÁMARA
+=========================================================*/
+
+camara11.position.set(
+    0,
+    5,
+    40
+);
+
+
+/*=========================================================
+        CONTROLES
+=========================================================*/
+
+const controles11 =
+    new OrbitControls(
+
+        camara11,
+
+        renderer11.domElement
+
+    );
+
+
+controles11.enablePan = false;
+controles11.enableZoom = false;
+controles11.enableDamping = true;
+controles11.dampingFactor = 0.05;
+/*=========================================================
+        ANIMACIÓN
+=========================================================*/
+function animarModelo11(){
+
+    requestAnimationFrame(
+        animarModelo11
+    );
+
+    if(modelo11){
+
+        modelo11.rotation.y += 0.003;
+
+    }
+
+    controles11.update();
+
+    renderer11.render(
+        escena11,
+        camara11
+    );
+
+}
+
+animarModelo11();
+/*=========================================================
+        MODELO 3D - DUODÉCIMA ESTACIÓN
+=========================================================*/
+
+const escena12 = new THREE.Scene();
+
+const contenedor3D12 =
+    document.getElementById("modelo3d12");
+
+
+const camara12 =
+    new THREE.PerspectiveCamera(
+
+        35,
+
+        contenedor3D12.clientWidth /
+        contenedor3D12.clientHeight,
+
+        0.1,
+
+        1000
+
+    );
+
+
+const renderer12 =
+    new THREE.WebGLRenderer({
+
+        alpha:true,
+
+        antialias:true
+
+    });
+
+
+renderer12.setSize(
+
+    contenedor3D12.clientWidth,
+
+    contenedor3D12.clientHeight
+
+);
+
+
+renderer12.setPixelRatio(
+    window.devicePixelRatio
+);
+
+
+contenedor3D12.appendChild(
+    renderer12.domElement
+);
+
+
+/*=========================================================
+        LUCES
+=========================================================*/
+
+const luzAmbiente12 =
+    new THREE.AmbientLight(
+        0xffffff,
+        2
+    );
+
+escena12.add(
+    luzAmbiente12
+);
+
+
+const luzDireccional12 =
+    new THREE.DirectionalLight(
+        0xffffff,
+        5
+    );
+
+
+luzDireccional12.position.set(
+    8,
+    10,
+    8
+);
+
+
+escena12.add(
+    luzDireccional12
+);
+
+
+/*=========================================================
+        CARGAR MODELO PROVISIONAL
+=========================================================*/
+
+const loader12 =
+    new GLTFLoader();
+
+loader12.setMeshoptDecoder(
+    MeshoptDecoder
+);
+
+let modelo12;
+
+
+loader12.load(
+
+    "./estacion12.glb",
+
+    function(gltf){
+
+        modelo12 =
+            gltf.scene;
+
+        modelo12.scale.set(
+            18,
+            18,
+            18
+        );
+
+        modelo12.position.set(
+            1,
+            -10,
+            0
+        );
+
+        escena12.add(
+            modelo12
+        );
+
+    },
+
+    undefined,
+
+    function(error){
+
+        console.log(
+            "Error cargando Duodécima Estación:",
+            error
+        );
+
+    }
+
+);
+
+
+/*=========================================================
+        CÁMARA
+=========================================================*/
+
+camara12.position.set( 0, 5, 40);
+
+
+/*=========================================================
+        CONTROLES
+=========================================================*/
+
+const controles12 = new OrbitControls( camara12, renderer12.domElement);
+
+
+controles12.enablePan = false;
+
+controles12.enableZoom = false;
+
+controles12.enableDamping = true;
+
+controles12.dampingFactor = 0.05;
+
+
+/*=========================================================
+        ANIMACIÓN
+=========================================================*/
+
+function animarModelo12(){
+
+    requestAnimationFrame(
+        animarModelo12
+    );
+
+    if(modelo12){
+
+        modelo12.rotation.y += 0.003;
+
+    }
+
+    controles12.update();
+
+    renderer12.render( escena12, camara12 );
+
+}
+
+animarModelo12();
+// INTRODUCCIÓN
+setTimeout(() => {
+
+document.getElementById("intro").style.opacity="0";
+document.getElementById("intro").style.transition="2s";
+setTimeout(()=>{
+
+document.getElementById("intro").style.display="none";
+},2000);
+
+},5000);
+/*=========================================================
+        INTRODUCCIÓN
+=========================================================*/
+const intro = document.getElementById("intro");
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>100){
+        intro.style.opacity="0";
+        intro.style.transform="scale(1.1)";
+        intro.style.transition="1.5s";
+
+    }
+
+});
+/*=========================================================
+        EFECTO MAQUINA DE ESCRIBIR
+=========================================================*/
+const historiaTexto=
+
+`Cuando Jesús iba caminando hacia el Calvario, estaba muy cansado
+por los golpes y el peso de la cruz. Al ver que apenas podía
+continuar, los soldados obligaron a Simón de Cirene a ayudarle
+a cargar la cruz hasta el lugar de la crucifixión.`;
+
+const significadoTexto=
+
+`Esta estación simboliza la solidaridad,
+la ayuda al prójimo y el compartir las cargas
+de los demás.`;
+const anioTexto=
+
+`30 d.C.`;
+function escribirTexto(id,texto,velocidad){
+    const elemento=document.getElementById(id);
+    let i=0;
+    function escribir(){
+        if(i<texto.length){elemento.innerHTML+=texto.charAt(i);i++;
+
+            setTimeout(escribir,velocidad);
+        }
+    }
+    escribir();
+}
+/*=========================================================
+        TEXTO SEGUNDA ESTACIÓN
+=========================================================*/
+
+const historia2Texto =
+`Jesus toma sobre sus hombros la pesada cruz
+y comienza el camino hacia el lugar de la crucifixion.`;
+
+const significado2Texto =
+`Esta estacion representa el peso del sacrificio
+y la entrega de Jesus durante su camino.`;
+
+const anio2Texto =
+`30 - 33 d.C.`;
+/*=========================================================
+        TEXTO TERCERA ESTACIÓN
+=========================================================*/
+
+const historia3Texto =
+`Jesus, agotado por el peso de la cruz y el sufrimiento,
+pierde sus fuerzas y cae por primera vez durante el camino
+hacia el Calvario.`;
+
+const significado3Texto =
+`Esta estacion representa la fragilidad humana ante las
+dificultades y la fuerza necesaria para levantarse
+y continuar el camino.`;
+
+const anio3Texto =
+`30 - 33 d.C.`;
+/*=========================================================
+        TEXTO CUARTA ESTACIÓN
+=========================================================*/
+
+const historia4Texto =
+`Durante el camino hacia el Calvario, Jesus encuentra
+a su madre Maria. El encuentro entre ambos expresa
+el dolor de una madre al ver sufrir a su hijo.`;
+
+const significado4Texto =
+`Esta estacion representa el amor de una madre,
+el sufrimiento compartido y la fortaleza de Maria
+ante el dolor de su hijo.`;
+
+const anio4Texto =
+`30 - 33 d.C.`;
+/*=========================================================
+        TEXTO QUINTA ESTACIÓN
+=========================================================*/
+
+const historia5Texto =
+`Los soldados obligaron a Simon de Cirene a ayudar
+a Jesus a cargar la cruz durante el camino hacia
+el lugar de la crucifixion.`;
+
+const significado5Texto =
+`Esta estacion representa la solidaridad, la ayuda
+al prójimo y la importancia de compartir las cargas
+de quienes sufren.`;
+
+const anio5Texto =
+`30 - 33 d.C.`;
+/*=========================================================
+        TEXTO SEXTA ESTACIÓN
+=========================================================*/
+
+const historia6Texto =
+`Segun la tradición cristiana, Verónica se acerco a Jesus
+durante el camino al Calvario y limpió su rostro con un
+paño, mostrando compasión ante su sufrimiento.`;
+
+const significado6Texto =
+`Esta estacion representa la compasión, la misericordia
+y el valor de ayudar a quien está sufriendo.`;
+
+const anio6Texto =
+`30 - 33 d.C.`;
+/*=========================================================
+        TEXTO SÉPTIMA ESTACIÓN
+=========================================================*/
+
+const historia7Texto =
+`Jesus continúa su camino hacia el Calvario y, debilitado
+por el cansancio, el peso de la cruz y el sufrimiento,
+vuelve a caer por segunda vez.`;
+
+const significado7Texto =
+`Esta estacion representa la perseverancia ante las
+dificultades y la fuerza para levantarse nuevamente
+a pesar del sufrimiento.`;
+
+const anio7Texto =
+`30 - 33 d.C.`;
+/*=========================================================
+        TEXTO OCTAVA ESTACIÓN
+=========================================================*/
+
+const historia8Texto =
+`Jesus encuentra a un grupo de mujeres de Jerusalén
+que lloran y se lamentan por su sufrimiento mientras
+avanza hacia el lugar de la crucifixión.`;
+
+const significado8Texto =
+`Esta estacion representa la compasion y nos recuerda
+que, incluso en medio del sufrimiento, Jesus invita
+a mirar también las necesidades de los demas.`;
+
+const anio8Texto =
+`30 - 33 d.C.`;
+/*=========================================================
+        TEXTO NOVENA ESTACIÓN
+=========================================================*/
+
+const historia9Texto =
+`Jesus, agotado por el peso de la cruz y por el
+sufrimiento del camino, cae por tercera vez antes
+de llegar al lugar de la crucifixion.`;
+
+const significado9Texto =
+`Esta estacion representa la perseverancia y la
+fortaleza para continuar incluso cuando las fuerzas
+parecen haberse agotado por completo.`;
+
+const anio9Texto =
+`30 - 33 d.C.`;
+/*=========================================================
+        TEXTO DÉCIMA ESTACIÓN
+=========================================================*/
+
+const historia10Texto =
+`Al llegar al lugar de la crucifixión, los soldados
+quitan a Jesús sus vestiduras antes de prepararlo
+para ser crucificado.`;
+
+const significado10Texto =
+`Esta estacion representa la humildad, el desprendimiento
+y el sufrimiento que Jesús acepta durante su pasion.`;
+
+const anio10Texto =
+`30 - 33 d.C.`;
+/*=========================================================
+        TEXTO UNDÉCIMA ESTACIÓN
+=========================================================*/
+
+const historia11Texto =
+`Jesus llega al lugar de la crucifixion y es clavado
+en la cruz. Allí comienza el momento culminante de
+su pasion y entrega por la humanidad.`;
+
+const significado11Texto =
+`Esta estacion representa el sacrificio, el sufrimiento
+y la entrega de Jesús, quien acepta su pasion por amor.`;
+
+const anio11Texto =
+`30 - 33 d.C.`;
+/*=========================================================
+        TEXTO DUODÉCIMA ESTACIÓN
+=========================================================*/
+
+const historia12Texto =
+`Jesus, después de recorrer el camino del Calvario,
+es crucificado y muere en la cruz. Su muerte representa
+el momento culminante de su pasion y entrega.`;
+
+const significado12Texto =
+`Esta estacion representa el sacrificio, el amor y la
+entrega de Jesus, quien ofrece su vida por la humanidad.`;
+
+const anio12Texto =
+`30 - 33 d.C.`;
+/*=========================================================
+      OBSERVER
+=========================================================*/
+
+const estacion1=document.getElementById("estacion1");
+let yaEscribio=false;
+const observer=new IntersectionObserver((entradas)=>{
+
+entradas.forEach((entrada)=>{
+if(entrada.isIntersecting){
+
+if(!yaEscribio){
+
+yaEscribio=true;
+
+escribirTexto("historia1",historiaTexto,28);
+
+setTimeout(()=>{
+
+escribirTexto("significado1",significadoTexto,28);
+
+},8000);
+
+setTimeout(()=>{
+
+escribirTexto("anio1",anioTexto,80);
+},12000);
+}
+}
+});
+},{threshold:.45});
+observer.observe(estacion1);
+/*=========================================================
+        ESCRITURA SEGUNDA ESTACIÓN
+=========================================================*/
+
+let segundaEscrita = false;
+const observer2 = new IntersectionObserver(
+    (entradas) => {
+        entradas.forEach((entrada) => {
+            if(
+                entrada.isIntersecting &&
+                !segundaEscrita
+            ){
+                segundaEscrita = true;
+                escribirTexto("historia2", historia2Texto, 28);
+                setTimeout(() => {
+
+                    escribirTexto( "significado2", significado2Texto, 28);
+                }, 7000);
+
+                setTimeout(() => {
+                    escribirTexto("anio2",  anio2Texto, 70 );
+
+                }, 12000);
+            }
+        });
+    },
+    {
+        threshold:0.35
+    }
+
+);
+
+observer2.observe( document.getElementById("estacion2"));
+/*=========================================================
+        ESCRITURA TERCERA ESTACIÓN
+=========================================================*/
+
+let terceraEscrita = false;
+const observer3 = new IntersectionObserver(
+
+        (entradas) => {
+
+            entradas.forEach((entrada) => {
+
+                if(
+                    entrada.isIntersecting &&  !terceraEscrita
+                ){
+
+                    terceraEscrita = true;
+
+                    escribirTexto("historia3", historia3Texto, 28  );
+
+
+                    setTimeout(() => {
+
+                        escribirTexto("significado3",significado3Texto,  28);
+
+                    }, 7000);
+
+
+                    setTimeout(() => {
+
+                        escribirTexto("anio3",anio3Texto,  70 );
+                    }, 12000);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.35
+        }
+
+    );
+
+
+observer3.observe(
+    document.getElementById("estacion3")
+);
+     /*=========================================================
+        ESCRITURA CUARTA ESTACIÓN
+=========================================================*/
+let cuartaEscrita = false;
+const observer4 = new IntersectionObserver(
+
+        (entradas) => {
+
+            entradas.forEach((entrada) => {
+
+                if(
+                    entrada.isIntersecting && !cuartaEscrita
+                ){
+
+                    cuartaEscrita = true;
+
+                    escribirTexto("historia4", historia4Texto,   28);
+
+
+                    setTimeout(() => {
+
+                        escribirTexto( "significado4",significado4Texto, 28 );
+                    }, 7000);
+
+
+                    setTimeout(() => {
+
+                        escribirTexto( "anio4",  anio4Texto, 70);
+                    }, 12000);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.35
+        }
+
+    );
+
+
+observer4.observe(  document.getElementById("estacion4"));   
+/*=========================================================
+        ESCRITURA QUINTA ESTACIÓN
+=========================================================*/
+let quintaEscrita = false;
+
+const observer5 =  new IntersectionObserver(
+
+        (entradas) => {
+
+            entradas.forEach((entrada) => {
+
+                if(
+                    entrada.isIntersecting &&  !quintaEscrita
+                ){
+
+                    quintaEscrita = true;
+
+                    escribirTexto("historia5",historia5Texto,   28   );
+
+                    setTimeout(() => {
+
+                        escribirTexto("significado5", significado5Texto,  28 );
+
+                    }, 7000);
+
+
+                    setTimeout(() => {
+
+                        escribirTexto("anio5",anio5Texto, 70 );
+                    }, 12000);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.35
+        }
+
+    );
+observer5.observe( document.getElementById("estacion5"));
+/*=========================================================
+        ESCRITURA SEXTA ESTACIÓN
+=========================================================*/
+let sextaEscrita = false;
+
+const observer6 =  new IntersectionObserver(
+
+        (entradas) => {
+            entradas.forEach((entrada) => {
+
+                if(
+                    entrada.isIntersecting && !sextaEscrita
+                ){
+
+                    sextaEscrita = true;
+
+                    escribirTexto(  "historia6",  historia6Texto, 28 );
+
+
+                    setTimeout(() => {
+
+                        escribirTexto(  "significado6", significado6Texto,  28  );
+                    }, 7000);
+
+
+                    setTimeout(() => {
+
+                        escribirTexto( "anio6", anio6Texto,  70 );
+                    }, 12000);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.35
+        }
+
+    );
+
+
+observer6.observe(
+    document.getElementById("estacion6")
+);
+/*=========================================================
+        ESCRITURA SÉPTIMA ESTACIÓN
+=========================================================*/
+
+let septimaEscrita = false;
+
+const observer7 = new IntersectionObserver(
+
+        (entradas) => {
+            entradas.forEach((entrada) => {
+
+                if(
+                    entrada.isIntersecting &&   !septimaEscrita
+                ){
+
+                    septimaEscrita = true;
+
+
+                    escribirTexto("historia7",   historia7Texto,   28  );
+
+                    setTimeout(() => {
+                        escribirTexto("significado7", significado7Texto,28 );
+
+                    }, 7000);
+
+
+                    setTimeout(() => {
+                        escribirTexto("anio7",anio7Texto,  70  );
+                    }, 12000);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.35
+        }
+
+    );
+
+
+observer7.observe(
+    document.getElementById("estacion7")
+);
+/*=========================================================
+        ESCRITURA OCTAVA ESTACIÓN
+=========================================================*/
+
+let octavaEscrita = false;
+
+const observer8 =  new IntersectionObserver(
+
+        (entradas) => {
+
+            entradas.forEach((entrada) => {
+
+                if(
+                    entrada.isIntersecting && !octavaEscrita
+                ){
+
+                    octavaEscrita = true;
+                    escribirTexto(  "historia8",  historia8Texto,  28  );
+
+                    setTimeout(() => {
+                        escribirTexto(  "significado8",  significado8Texto,  28);
+                    }, 7000);
+
+
+                    setTimeout(() => {
+                        escribirTexto( "anio8", anio8Texto,   70);
+
+                    }, 12000);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.35
+        }
+
+    );
+
+
+observer8.observe(
+    document.getElementById("estacion8")
+);
+/*=========================================================
+        ESCRITURA NOVENA ESTACIÓN
+=========================================================*/
+
+let novenaEscrita = false;
+const observer9 = new IntersectionObserver(
+         (entradas) => {
+            entradas.forEach((entrada) => {
+                if(
+                    entrada.isIntersecting && !novenaEscrita
+                ){
+
+                    novenaEscrita = true;
+                    escribirTexto(  "historia9",  historia9Texto, 28  );
+
+
+                    setTimeout(() => {
+
+                        escribirTexto("significado9", significado9Texto, 28 );
+
+                    }, 7000);
+
+
+                    setTimeout(() => {
+                        escribirTexto( "anio9", anio9Texto, 70 );
+                    }, 12000);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.35
+        }
+
+    );
+
+
+observer9.observe(
+    document.getElementById("estacion9")
+);
+/*=========================================================
+        ESCRITURA DÉCIMA ESTACIÓN
+=========================================================*/
+
+let decimaEscrita = false;
+const observer10 = new IntersectionObserver(
+
+        (entradas) => {
+
+            entradas.forEach((entrada) => {
+
+                if(
+                    entrada.isIntersecting &&   !decimaEscrita
+                ){
+
+                    decimaEscrita = true;
+                    escribirTexto( "historia10", historia10Texto,28 );
+
+                    setTimeout(() => {
+
+                        escribirTexto( "significado10", significado10Texto,28  );
+
+                    }, 7000);
+
+
+                    setTimeout(() => {
+                        escribirTexto(  "anio10",   anio10Texto,  70 );
+                    }, 12000);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.35
+        }
+    );
+observer10.observe(  document.getElementById("estacion10"));
+/*=========================================================
+        ESCRITURA UNDÉCIMA ESTACIÓN
+=========================================================*/
+let undecimaEscrita = false;
+const observer11 =new IntersectionObserver(
+        (entradas) => {
+            entradas.forEach((entrada) => {
+                if(
+                    entrada.isIntersecting && !undecimaEscrita
+                ){
+                    undecimaEscrita = true;
+
+
+                    escribirTexto(  "historia11",  historia11Texto,  28  );
+
+                    setTimeout(() => {
+                        escribirTexto(  "significado11",  significado11Texto,  28  );
+
+                    }, 7000);
+
+
+                    setTimeout(() => {
+                        escribirTexto(   "anio11",  anio11Texto,  70  );
+                    }, 12000);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.35
+        }
+
+    );
+
+observer11.observe( document.getElementById("estacion11"));
+/*=========================================================
+        ESCRITURA DUODÉCIMA ESTACIÓN
+=========================================================*/
+let duodecimaEscrita = false;
+const observer12 =
+    new IntersectionObserver(
+
+        (entradas) => {
+
+            entradas.forEach((entrada) => {
+
+                if( entrada.isIntersecting &&  !duodecimaEscrita ){
+
+                    duodecimaEscrita = true;
+                    escribirTexto(  "historia12", historia12Texto, 28  );
+
+
+                    setTimeout(() => {
+
+                        escribirTexto( "significado12",  significado12Texto, 28);
+
+                    }, 7000);
+
+
+                    setTimeout(() => {
+
+                        escribirTexto(  "anio12",  anio12Texto,  70  );
+
+                    }, 12000);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.35
+        }
+
+    );
+
+observer12.observe(
+    document.getElementById("estacion12")
+);
+</script>
+</script>
+</body>
+</html>

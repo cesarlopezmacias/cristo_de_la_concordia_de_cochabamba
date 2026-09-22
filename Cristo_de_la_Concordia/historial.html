@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia | Cristo de la Concordia</title>
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+    <style>
+        /* CONFIGURACIÓN GENERAL*/  
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            width: 100%;
+            min-height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-family: "Times New Roman", Georgia, serif;
+            color: white;
+            background:
+             radial-gradient(circle at center, rgba(45, 55, 70, .35), rgba(5, 8, 13, .96)),
+            url("2da-imagen.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+
+        }
+        /*   CAPA OSCURA SOBRE EL FONDO*/  
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+
+                linear-gradient(90deg,
+                    rgba(4, 7, 12, .92),
+                    rgba(4, 7, 12, .45),
+                    rgba(4, 7, 12, .92));
+
+            pointer-events: none;
+            z-index: -1;
+        }
+        /*  MENÚ*/
+        #menu {
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 76px;
+            display: flex;
+            align-items: center;
+          justify-content: flex-start;
+            gap: 34px;
+            padding: 0 55px;
+            background: rgba(5, 8, 13, .58);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+
+            z-index: 1000;
+
+        }
+        #menu a {
+
+            position: relative;
+            color: white;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: .5px;
+            transition: .35s ease;
+
+        }
+        #menu a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 2px;
+            background: #d9b86c;
+            transition: .35s ease;
+
+        }
+        #menu a:hover {
+
+            color: #d9b86c;
+
+        }
+        #menu a:hover::after {
+
+            width: 100%;
+        }
+        /*   ENCABEZADO */  
+        .encabezado {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            padding-top: 105px;
+
+        }
+        .subtitulo {
+            display: block;
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 6px;
+            color: #d9b86c;
+            text-transform: uppercase;
+
+        }
+        .encabezado h1 {
+            font-size: 48px;
+            line-height: 1.05;
+            letter-spacing: 3px;
+            font-weight: bold;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, .7);
+
+        }
+        .encabezado h1 span {
+            display: block;
+            color: #d9b86c;
+
+        }
+        .encabezado p {
+            max-width: 650px;
+            margin: 15px auto 0;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #d5d5d5;
+
+        }
+        /* ESCENARIO PRINCIPAL*/  
+        .historia {
+            position: relative;
+            width: 100%;
+            min-height: 620px;
+            height: auto;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+
+        }
+        /*   ÁREA DE LAS IMÁGENES */  
+        .escenario {
+            position: relative;
+            width: 1200px;
+            max-width: 92%;
+            height: 400px;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+        /*   IMAGEN PRINCIPAL*/  
+        .imagen-principal {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 560px;
+            height: 350px;
+            transform: translate(-50%, -50%) scale(1);
+
+            border-radius: 24px;
+            overflow: hidden;
+            z-index: 10;
+            opacity: 1;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, .7), 0 0 45px rgba(217, 184, 108, .13);
+
+            border: 1px solid rgba(217, 184, 108, .35);
+
+            transition: transform .75s cubic-bezier(.22, .61, .36, 1), opacity .55s ease, filter .75s ease;
+        }
+        /*   IMAGEN LATERAL */ 
+        .imagen-lateral {
+            position: absolute;
+            top: 50%;
+            width: 230px;
+            height: 285px;
+            transform: translateY(-50%) scale(.72);
+            border-radius: 20px;
+            overflow: hidden;
+            z-index: 3;
+            opacity: .48;
+            filter: brightness(.55) blur(.5px);
+            border: 1px solid rgba(255, 255, 255, .12);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, .55);
+            transition: transform .75s cubic-bezier(.22, .61, .36, 1), opacity .75s ease, filter .75s ease;
+
+        }
+        .imagen-lateral img,
+        .imagen-principal img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform .8s ease;
+
+        }
+        /*   IMAGEN LATERAL IZQUIERDA */ 
+        .imagen-lateral.izquierda {
+            left: 0;
+        }
+
+        /*   IMAGEN LATERAL DERECHA */ 
+        .imagen-lateral.derecha {
+            right: 0;
+
+        }
+        /* EFECTO DE LUZ SOBRE LA IMAGEN CENTRAL  */ 
+        .imagen-principal::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, .12), transparent 35%, transparent 70%, rgba(0, 0, 0, .3));
+
+            pointer-events: none;
+        }
+        /*    INFORMACIÓN*/ 
+        .informacion {
+            position: relative;
+            width: 680px;
+            max-width: 80%;
+            margin-top: 8px;
+            margin-bottom: 135px;
+            text-align: center;
+            z-index: 20;
+        }
+        .numero {
+            display: block;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 5px;
+            color: #d9b86c;
+            margin-bottom: 7px;
+
+        }
+        .informacion h2 {
+            font-size: 32px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+
+        }
+        .linea {
+            width: 70px;
+            height: 2px;
+            margin: 0 auto 13px;
+            background: #d9b86c;
+            box-shadow: 0 0 12px rgba(217, 184, 108, .45);
+
+        }
+        #textoHistoria {
+            min-height: 55px;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.55;
+            color: #dedede;
+        }
+        /* FLECHAS*/  
+        .flecha {
+            position: absolute;
+            top: 200px;
+            width: 62px;
+            height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid rgba(217, 184, 108, .65);
+
+            background: rgba(8, 12, 18, .65);
+            color: white;
+            font-family: Georgia, serif;
+
+            font-size: 42px;
+            line-height: 1;
+            cursor: pointer;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, .45);
+
+            transition:
+                transform .3s ease, color .3s ease, border-color .3s ease, background .3s ease, box-shadow .3s ease;
+        }
+
+
+        .flecha.izquierda {
+            left: 35px;
+        }
+        .flecha.derecha {
+            right: 35px;
+
+        }
+        .flecha:hover {
+            color: #d9b86c;
+            border-color: #d9b86c;
+            background: rgba(217, 184, 108, .12);
+            box-shadow: 0 0 30px rgba(217, 184, 108, .35);
+            transform: scale(1.12);
+
+        }
+        .flecha:active {
+            transform: scale(.94);
+
+        }
+        /* PROGRESO*/ 
+        .progreso {
+            position: fixed;
+            left: 50%;
+            bottom: 35px;
+            transform: translateX(-50%);
+            width: 600px;
+            max-width: 70%;
+            z-index: 100;
+
+        }
+        .linea-progreso {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+
+        }
+        .linea-progreso::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 1px;
+            background: rgba(255, 255, 255, .2);
+            z-index: -1;
+
+        }
+        .punto {
+
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #59616c;
+            border: 2px solid rgba(255, 255, 255, .35);
+            transition: .4s ease;
+
+        }
+        .punto.activo {
+            width: 16px;
+            height: 16px;
+            background: #d9b86c;
+            border-color: #fff;
+            box-shadow: 0 0 18px rgba(217, 184, 108, .8);
+
+        }
+        .contador {
+            margin-top: 10px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: #aaa;
+
+        }
+        #contadorActual {
+            color: #d9b86c;
+        }
+        /*    INDICACIÓN */
+        .indicacion {
+            position: fixed;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: #777;
+            text-transform: uppercase;
+
+        }
+        .indicacion span {
+            color: #d9b86c;
+            font-size: 16px;
+
+        }
+        /* ANIMACIONES PREPARADAS*/
+        .imagen-principal.saliendo-izquierda {
+            transform: translate(-50%, -50%) translateX(-420px) scale(.62);
+
+            opacity: 0;
+
+        }
+        .imagen-principal.saliendo-derecha {
+            transform: translate(-50%, -50%) translateX(420px) scale(.62);
+
+            opacity: 0;
+
+        }
+        .imagen-lateral.derecha.entrando {
+            transform: translateY(-50%) translateX(-250px) scale(1);
+
+            opacity: 1;
+            filter: brightness(1) blur(0);
+
+        }
+        .imagen-lateral.izquierda.entrando {
+            transform: translateY(-50%) translateX(250px)scale(1);
+
+            opacity: 1;
+            filter: brightness(1) blur(0);
+
+        }
+        /* ESCRITURA DEL TEXTO*/
+        #textoHistoria {
+            transition: opacity .35s ease;
+        }
+        #textoHistoria.ocultando {
+            opacity: 0;
+
+        }
+        /* RESPONSIVE */
+        @media(max-width:900px) {
+
+            body {
+                overflow: auto;
+            }
+            #menu {
+                justify-content: center;
+                gap: 15px;
+                padding: 15px;
+                height: auto;
+                flex-wrap: wrap;
+
+            }
+            #menu a {
+                font-size: 13px;
+
+            }
+            .encabezado {
+                padding-top: 120px;
+
+            }
+            .encabezado h1 {
+                font-size: 32px;
+
+            }
+            .escenario {
+                width: 100%;
+                height: 330px;
+
+            }
+            .imagen-principal {
+                width: 65vw;
+                height: 300px;
+
+            }
+            .imagen-lateral {
+                width: 120px;
+                height: 220px;
+            }
+            .imagen-lateral.izquierda {
+                left: -20px;
+            }
+            .imagen-lateral.derecha {
+                right: -20px;
+            }
+            .informacion {
+                width: 90%;
+                max-width: 90%;
+            }
+
+            .informacion h2 {
+                font-size: 24px;
+            }
+            #textoHistoria {
+                font-size: 13px;
+            }
+
+            .flecha {
+                width: 48px;
+                height: 48px;
+                font-size: 32px;
+
+            }
+            .flecha.izquierda {
+                left: 10px;
+            }
+            .flecha.derecha {
+                right: 10px;
+            }
+            .progreso {
+                width: 80%;
+                bottom: 30px;
+            }
+        }
+        @media(max-width:600px) {
+            .imagen-lateral {
+                display: none;
+            }
+            .imagen-principal {
+                width: 85vw;
+                height: 280px;
+            }
+            .encabezado h1 {
+                font-size: 27px;
+            }
+            .subtitulo {
+                font-size: 9px;
+                letter-spacing: 3px;
+            }
+            .encabezado p {
+                font-size: 12px;
+                padding: 0 20px;
+
+            }
+            .informacion {
+                margin-top: 15px;
+
+            }
+            .informacion h2 {
+                font-size: 22px;
+
+            }
+            #textoHistoria {
+                font-size: 12px;
+            }
+            .progreso {
+                bottom: 38px;
+            }
+            .indicacion {
+                display: none;
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- =====================================================
+         MENÚ PRINCIPAL
+    ====================================================== -->
+    <nav id="menu">
+        <a href="index.html"> Volver al inicio</a>
+    </nav>
+    <!-- =====================================================
+         TÍTULO PRINCIPAL
+    ====================================================== -->
+    <header class="encabezado">
+        <h1>
+            HISTORIA DEL
+            <span>CRISTO DE LA CONCORDIA</span>
+        </h1>
+    </header>
+
+    <!--*/ =====================================================
+         ESCENARIO PRINCIPAL
+    ====================================================== -->
+    <main class="historia">
+        <!-- =================================================
+             FLECHA IZQUIERDA
+        ================================================== -->
+        <button class="flecha izquierda" id="anterior" aria-label="Historia anterior">
+            ‹
+        </button>
+        <!-- =================================================
+             ÁREA DE IMÁGENES
+        ================================================== -->
+        <section class="escenario">
+        <!-- IMAGEN ANTERIOR -->
+<div class="imagen-lateral izquierda" id="imagenAnterior">
+    <img src="./historia2.png" alt="Historia anterior">
+</div>
+<!-- IMAGEN PRINCIPAL -->
+<div class="imagen-principal" id="imagenPrincipal">
+    <img id="imagenHistoria"
+         src="./historia1.png"
+         alt="Cristo de la Concordia">
+</div>
+<!-- IMAGEN SIGUIENTE -->
+<div class="imagen-lateral derecha" id="imagenSiguiente">
+    <img src="./historia3.png" alt="Historia siguiente">
+</div>
+            </div>
+        </section>
+        <!-- =================================================
+             INFORMACIÓN DE LA ETAPA
+        ================================================== -->
+        <section class="informacion">
+            <span class="numero" id="numeroHistoria">
+                01
+            </span>
+            <h2 id="tituloHistoria">
+                DETALLES DE LA HISTORIA
+            </h2>
+            <div class="linea"></div>
+            <p id="textoHistoria"></p>
+        </section>
+        <!-- =================================================
+             FLECHA DERECHA
+        ================================================= -->
+        <button class="flecha derecha" id="siguiente" aria-label="Historia siguiente">
+            ›
+        </button>
+    </main>
+   <section class="progreso">
+    <div class="contador">
+        <span id="contadorActual">01</span>
+        <span>/</span>
+        <span>03</span>
+    </div>
+</section>
+        </div>
+    </section>
+    <!-- =====================================================
+         INDICACIÓN
+    ====================================================== -->
+    <div class="indicacion">
+        <span>
+            ←
+        </span>
+        <p>
+            Explora la historia
+        </p>
+        <span>
+            →
+        </span>
+    </div>
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+</body>
+<script>
+
+    /* DATOS DE LA HISTORIA */  
+    const historias = [
+        /*  HISTORIA 01*/  
+        {
+        
+            imagen: "historia1.png",
+            titulo: "DETALLES DE LA HISTORIA",
+            texto:
+                `La estatua del Cristo de la Concordia fue realizada 
+        por los escultores cochabambinos César y Walter Terrazas
+         Pardo, bajo la dirección del arquitecto Mario Moscoso Villanueva.
+          La obra fue impulsada por Lucio López y su construcción comenzó 
+          el 12 de julio de 1987, finalizando el 20 de noviembre de 1994. 
+          Fue creada en recuerdo de la visita del papa Juan Pablo II a 
+          Cochabamba en 1988. La estatua representa la protección del 
+          Cristo sobre la ciudad de Cochabamba y la hospitalidad de sus habitantes. 
+          En 2019 recibió trabajos de.`
+        },
+        /*    HISTORIA 02*/ 
+        {
+    
+            imagen: "historia2.png",
+            titulo: "INFORMACION DEL CRISTO DE LA CONCORDIA",
+            texto:
+                `La estatua del Cristo de la Concordia se encuentra en la 
+        cima del cerro San Pedro, en Cochabamba, a una altitud de 
+        2.840 m s. n. m. Tiene 34,20 metros de altura, y junto con 
+        su pedestal alcanza 40,44 metros, con un peso aproximado de
+         2.200 toneladas. Es una de las estatuas cristianas más grandes 
+         del mundo y supera en altura al Cristo Redentor de Río de Janeiro. 
+         En su interior cuenta con escaleras y ventanas, que permiten subir 
+         hasta los brazos y observar diferentes vistas de la ciudad y el valle 
+         de Cochabamba..`
+        },
+
+
+        /*   HISTORIA 03 */ 
+        {
+           
+            imagen: "historia3.png",
+            titulo: "DATOS DE INICIO Y FIN DE LA CONSTRUCCIÓN",
+            texto: `Fecha de inicio: 12 de julio de 1987
+        Fecha de conclusión: 20 de noviembre de 1994
+        Altura de la imagen: 34,20 m.
+        Altura del pedestal: 6,24 m.
+        Altura total: 40,44 m.
+        Peso total (aprox.): 2200.00 t.
+        Altura de la cabeza: 4,64 m.
+        Peso de la cabeza: 11 850,00 kg.
+        Distancia entre las manos: 32,87 m..
+`
+        },
+    ];
+
+    /* ELEMENTOS DEL HTML */ 
+    const anterior = document.getElementById("anterior");
+    const siguiente = document.getElementById("siguiente");
+    const imagenPrincipal = document.getElementById("imagenPrincipal");
+    const imagenHistoria = document.getElementById("imagenHistoria");
+    const imagenAnterior = document.getElementById("imagenAnterior");
+    const imagenSiguiente = document.getElementById("imagenSiguiente");
+    const numeroHistoria = document.getElementById("numeroHistoria");
+    const tituloHistoria = document.getElementById("tituloHistoria");
+    const textoHistoria = document.getElementById("textoHistoria");
+    const contadorActual = document.getElementById("contadorActual");
+    const puntos = document.querySelectorAll(".punto");
+
+    /*TARJETA / HISTORIA ACTUAL */ 
+    let historiaActual = 0;
+    /* CONTROL DE ANIMACIÓN*/  
+    let animando = false;
+    /* ESCRIBIR TEXTO LETRA POR LETRA*/  
+    function escribirTexto(texto, velocidad = 25) {
+        textoHistoria.textContent = "";
+
+        let posicion = 0;
+
+        function escribir() {
+            if (posicion < texto.length) {
+
+                textoHistoria.textContent += texto.charAt(posicion);
+                posicion++; setTimeout(escribir, velocidad);
+            }
+        }
+        escribir();
+    }
+    /*  ACTUALIZAR INFORMACIÓN*/  
+    function actualizarInformacion() {
+        const historia = historias[historiaActual];
+
+        numeroHistoria.textContent = historia.numero;
+        tituloHistoria.textContent = historia.titulo;
+        imagenHistoria.src = historia.imagen;
+        textoHistoria.textContent =historia.texto;
+
+        contadorActual.textContent = String(historiaActual + 1).padStart(2, "0");
+
+        /*ACTUALIZAR PUNTOS*/  
+        puntos.forEach(
+            (punto, indice) => {
+                punto.classList.toggle("activo", indice === historiaActual);
+            }
+        );
+        /* ESCRIBIR HISTORIA */ 
+        escribirTexto(historia.texto, 25);
+    }
+    /* PREPARAR IMÁGENES LATERALES*/  
+    function actualizarImagenesLaterales() {
+
+        const indiceAnterior = (historiaActual - 1 + historias.length) % historias.length;
+        const indiceSiguiente = (historiaActual + 1) % historias.length;
+        imagenAnterior.querySelector("img").src = historias[indiceAnterior].imagen;
+
+        imagenSiguiente.querySelector("img").src = historias[indiceSiguiente].imagen;
+    }
+
+    /*  IR A LA SIGUIENTE HISTORIA */ 
+    function irSiguiente() {
+
+        if (animando) {
+
+            return;
+
+        }
+        animando = true;
+
+        /*   IMAGEN CENTRAL SALE HACIA LA IZQUIERDA*/  
+        imagenPrincipal.classList.add("saliendo-izquierda");
+        /*  IMAGEN DERECHA ENTRA Y CRECE*/  
+        imagenSiguiente.classList.add("entrando");
+
+        setTimeout(() => {
+
+            historiaActual++;
+            if (
+                historiaActual >= historias.length
+            ) {
+
+                historiaActual = 0;
+
+            }
+            /*   ACTUALIZAR DATOS*/  
+            actualizarInformacion();
+            actualizarImagenesLaterales();
+
+            /*  QUITAR ANIMACIONES */ 
+            imagenPrincipal.classList.remove( "saliendo-izquierda" );
+            imagenSiguiente.classList.remove( "entrando");
+            animando = false;
+        }, 750);
+    }
+    /*  IR A LA HISTORIA ANTERIOR*/  
+    function irAnterior() {
+
+        if (animando) {
+
+            return;
+
+        }
+        animando = true;
+        /* IMAGEN CENTRAL SALE HACIA LA DERECHA*/  
+        imagenPrincipal.classList.add("saliendo-derecha");
+        /*  IMAGEN IZQUIERDA ENTRA Y CRECE*/  
+        imagenAnterior.classList.add("entrando");
+
+        setTimeout(() => {
+            historiaActual--;
+
+            if ( historiaActual < 0  ) {
+                historiaActual = historias.length - 1;
+            }
+            /*   ACTUALIZAR DATOS*/  
+            actualizarInformacion();
+            actualizarImagenesLaterales();
+
+            /* QUITAR ANIMACIONES */  
+            imagenPrincipal.classList.remove("saliendo-derecha")
+            imagenAnterior.classList.remove("entrando");
+            animando = false;
+        }, 750);
+    }
+    /* BOTÓN DERECHA */ 
+    siguiente.onclick = function () {
+        irSiguiente();
+    };
+    /* BOTÓN IZQUIERDA*/  
+    anterior.onclick = function () {
+        irAnterior();
+    };
+    /*    FLECHAS DEL TECLADO */ 
+    document.addEventListener("keydown", function (event) {
+        // FLECHA DERECHA
+        if (event.key === "ArrowRight") {
+            irSiguiente();
+        }
+        /*    FLECHA IZQUIERDA */ 
+        if (event.key === "ArrowLeft") {
+            irAnterior();
+        }
+    }
+    );
+    /*   CLIC EN LOS PUNTOS*/ 
+    puntos.forEach(
+        (punto, indice) => {
+            punto.addEventListener("click", function () {
+
+                if (animando) {
+
+                    return;
+
+                }
+
+                if ( indice === historiaActual ) {
+                    return;
+                }
+                historiaActual = indice;
+
+                actualizarInformacion();
+                actualizarImagenesLaterales();
+            }
+            );
+        }
+    );
+    /* INICIAR LA HISTORIA*/  
+    actualizarInformacion();
+    actualizarImagenesLaterales();
+</script>
+
+</html>

@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Curiosos | Cristo de la Concordia</title>
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+      body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #2b3038 0%,
+            #171c23 45%,
+            #080b10 100%
+        );
+
+    color: white;
+
+    font-family: "Times New Roman", serif;
+
+    overflow-x: hidden;
+}
+
+        /* =====================================================
+   MENÚ PRINCIPAL
+===================================================== */
+
+      #menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 74px;
+
+    background: rgba(5,8,13,.82);
+
+    backdrop-filter: blur(12px);
+
+    display: flex;
+
+    justify-content: flex-start;
+
+    align-items: center;
+
+    gap: 42px;
+
+    padding-left: 35px;
+    padding-right: 65px;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+    box-shadow: 0 5px 25px rgba(0,0,0,.35);
+
+    z-index: 1000;
+}
+
+        /* =====================================================
+   ENLACES DEL MENÚ
+===================================================== */
+        #menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            font-weight: bold;
+            white-space: nowrap;
+            position: relative;
+            transition: color .3s ease, transform .3s ease;
+
+        }
+
+        /* =====================================================
+   LÍNEA DORADA AL PASAR EL MOUSE
+===================================================== */
+        #menu a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 2px;
+            background: #d9b86c;
+            box-shadow: 0 0 8px rgba(217, 184, 108, .6);
+            transition: width .3s ease;
+
+        }
+
+        /* =====================================================
+   EFECTO HOVER
+==================================================== */
+        #menu a:hover {
+
+            color: #d9b86c;
+            transform: translateY(-2px);
+
+        }
+
+
+        #menu a:hover::after {
+            width: 100%;
+
+        }
+
+        /* =====================================================
+           TÍTULO
+        ====================================================== */
+        .titulo {
+
+            text-align: center;
+            padding-top: 80px;
+            margin-bottom: 40px;
+
+        }
+
+        .titulo h1 {
+            font-size: 70px;
+            letter-spacing: 8px;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, .4), 0 0 25px rgba(255, 215, 120, .35);
+
+        }
+
+        .titulo p {
+            margin-top: 15px;
+            font-size: 22px;
+            color: #d8d8d8;
+            letter-spacing: 3px;
+        }
+
+        /* =====================================================
+   CARRUSEL ESTILO PROFESIONAL
+===================================================== */
+        .contenedor {
+            width: 100%;
+            max-width: 1400px;
+            height: 680px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* CONTENEDOR DE LAS 3 TARJETAS */
+        .carrusel {
+            width: 1200px;
+            height: 650px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* =====================================================
+   FLECHAS DEL CARRUSEL
+===================================================== */
+        .flecha {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            border: 1px solid rgba(217, 184, 108, .75);
+            background: rgba(10, 15, 23, .75);
+            color: #ffffff;
+            font-size: 40px;
+            font-family: "Times New Roman", serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 20;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 0 15px rgba(217, 184, 108, .15);
+            transition: .3s ease;
+        }
+
+        /* FLECHA IZQUIERDA */
+        .flecha.izquierda {
+            left: 25px;
+
+        }
+
+        /* FLECHA DERECHA */
+
+        .flecha.derecha {
+            right: 25px;
+        }
+
+        /* EFECTO AL PASAR EL MOUSE */
+        .flecha:hover {
+            color: #d9b86c;
+            border-color: #d9b86c;
+            background: rgba(217, 184, 108, .12);
+            box-shadow: 0 0 25px rgba(217, 184, 108, .45);
+            transform: translateY(-50%) scale(1.12);
+
+        }
+
+        /* EFECTO AL HACER CLIC */
+        .flecha:active {
+            transform: translateY(-50%) scale(.94);
+        }
+
+        /* =====================================================
+   TARJETAS
+===================================================== */
+        .tarjeta {
+            position: absolute;
+            width: 420px;
+            min-height: 560px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .03));
+
+            border: 1px solid rgba(255, 215, 120, .35);
+            border-radius: 25px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+            backdrop-filter: blur(10px);
+            transition: all .6s ease;
+            z-index: 2;
+        }
+
+        /* =====================================================
+   TARJETA CENTRAL
+===================================================== */
+
+        .tarjeta.central {
+            width: 500px;
+            min-height: 620px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            z-index: 5;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, .7), 0 0 40px rgba(255, 215, 120, .12);
+        }
+
+        /* =====================================================
+   TARJETA IZQUIERDA
+===================================================== */
+
+        .tarjeta.lateral.izquierda {
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%)scale(.72);
+            opacity: .45;
+            filter: blur(1px);
+            z-index: 2;
+        }
+
+        /* =====================================================
+   TARJETA DERECHA
+===================================================== */
+        .tarjeta.lateral.derecha {
+            right: 5%;
+            top: 50%;
+            transform:
+                translateY(-50%)scale(.72);
+            opacity: .45;
+            filter: blur(1px);
+            z-index: 2;
+        }
+
+        /* =====================================================
+   IMAGEN
+===================================================== */
+
+        .imagen-tarjeta {
+            width: 100%;
+            height: 330px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111923;
+        }
+
+        .imagen-tarjeta img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: .6s;
+        }
+
+        /* =====================================================
+   CONTENIDO
+==================================================== */
+        .contenido {
+            padding: 25px;
+        }
+
+        .numero {
+            font-size: 17px;
+            letter-spacing: 5px;
+            color: #d9b86c;
+        }
+
+        .contenido h2 {
+            margin-top: 10px;
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+
+        .contenido p {
+            margin-top: 12px;
+            color: #d0d0d0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* =====================================================
+   BOTÓN
+===================================================== */
+        .btn-detalles {
+            margin-top: 20px;
+            padding: 13px 28px;
+            border: 1px solid #d9b86c;
+            border-radius: 30px;
+            background: transparent;
+            color: white;
+            font-family: "Times New Roman", serif;
+            font-size: 15px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: .4s;
+        }
+
+        .btn-detalles:hover {
+
+            background: #d9b86c;
+            color: #080b10;
+            box-shadow: 0 0 25px rgba(217, 184, 108, .45);
+        }
+
+        /* =====================================================
+           IMAGEN
+        ====================================================== */
+        .imagen-tarjeta {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111923;
+
+        }
+
+        .imagen-tarjeta img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* =====================================================
+           CONTENIDO TARJETA
+        ====================================================== */
+        .contenido {
+            padding: 28px;
+        }
+
+        .numero {
+            font-size: 18px;
+            letter-spacing: 5px;
+            color: #d9b86c;
+
+        }
+
+        .contenido h2 {
+            margin-top: 10px;
+            font-size: 30px;
+            letter-spacing: 2px;
+        }
+
+        .contenido p {
+            margin-top: 12px;
+            color: #d0d0d0;
+            font-size: 17px;
+            line-height: 1.6;
+
+        }
+
+        /* =====================================================
+           BOTÓN
+        ====================================================== */
+        .btn-detalles {
+            margin-top: 20px;
+            padding: 13px 28px;
+            border: 1px solid #d9b86c;
+            border-radius: 30px;
+            background: transparent;
+            color: white;
+            font-family: "Times New Roman", serif;
+            font-size: 16px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: .4s;
+        }
+
+        .btn-detalles:hover {
+            background: #d9b86c;
+            color: #080b10;
+            box-shadow: 0 0 25px rgba(217, 184, 108, .45);
+        }
+
+        /* =====================================================
+           INDICADOR
+        ====================================================== */
+        .contador {
+            text-align: center;
+            margin-top: 20px;
+            color: #aaa;
+            letter-spacing: 3px;
+
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+        @media(max-width:700px) {
+            .titulo h1 {
+                font-size: 42px;
+            }
+
+            .titulo p {
+                font-size: 16px;
+            }
+
+            .tarjeta {
+                width: 80%;
+            }
+
+            .flecha {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        /* =====================================================
+   PANEL DE DETALLES
+===================================================== */
+        .panel-detalles {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(3, 7, 12, .92);
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .6s ease, visibility .6s ease;
+
+            z-index: 1000;
+        }
+
+        /* PANEL VISIBLE */
+        .panel-detalles.activo {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* =====================================================
+   CONTENIDO DEL DETALLE
+===================================================== */
+        .detalle-contenido {
+
+            position: relative;
+            width: 850px;
+            max-width: 95%;
+            min-height: 450px;
+            padding: 65px;
+            border-radius: 25px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .03));
+            border: 1px solid rgba(255, 215, 120, .4);
+            box-shadow: 0 30px 100px rgba(0, 0, 0, .7), 0 0 50px rgba(255, 215, 120, .08);
+
+            backdrop-filter: blur(20px);
+
+            transform: translateY(40px) scale(.95);
+
+            transition: transform .6s ease;
+
+        }
+
+        /* ANIMACIÓN AL ABRIR */
+        .panel-detalles.activo .detalle-contenido {
+
+            transform: translateY(0)scale(1);
+
+        }
+
+        /* =====================================================
+   BOTÓN CERRAR
+===================================================== */
+        .cerrar-detalles {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, .3);
+            background: rgba(255, 255, 255, .05);
+            color: white;
+            font-size: 30px;
+            line-height: 1;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .cerrar-detalles:hover {
+            background: rgba(255, 215, 120, .2);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        /* =====================================================
+   TEXTO DEL DETALLE
+===================================================== */
+        .detalle-numero {
+            color: #d9b86c;
+            letter-spacing: 5px;
+            font-size: 18px;
+        }
+
+        .detalle-contenido h2 {
+            margin-top: 12px;
+            font-size: 38px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, .25);
+        }
+
+        .linea-detalle {
+            width: 120px;
+            height: 2px;
+            margin: 25px 0;
+            background: #d9b86c;
+            box-shadow: 0 0 12px rgba(217, 184, 108, .5);
+        }
+
+
+        #textoDetalle {
+            color: #dddddd;
+            font-size: 21px;
+            line-height: 1.9;
+            min-height: 170px;
+        }
+
+        /* =====================================================
+   RESPONSIVE
+===================================================== */
+        @media(max-width:700px) {
+
+            .detalle-contenido {
+                padding: 45px 25px;
+
+            }
+
+            .detalle-contenido h2 {
+                font-size: 28px;
+            }
+
+            #textoDetalle {
+
+                font-size: 18px;
+            }
+        }
+
+        /* =====================================================
+   ANIMACIÓN DEL CARRUSEL
+===================================================== */
+        .tarjeta.salida-izquierda {
+            animation: salirIzquierda .45s ease forwards;
+
+        }
+
+
+        .tarjeta.entrada-derecha {
+            animation: entrarDerecha .55s ease forwards;
+
+        }
+
+
+        .tarjeta.salida-derecha {
+            animation: salirDerecha .45s ease forwards;
+
+        }
+
+
+        .tarjeta.entrada-izquierda {
+            animation: entrarIzquierda .55s ease forwards;
+
+        }
+
+
+        @keyframes salirIzquierda {
+
+            from {
+
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+
+            to {
+
+                opacity: 0;
+                transform: translateX(-250px) scale(.92);
+            }
+        }
+
+        @keyframes entrarDerecha {
+
+            from {
+
+                opacity: 0;
+                transform: translateX(250px) scale(.92);
+            }
+
+            to {
+
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+
+        }
+
+
+        @keyframes salirDerecha {
+            from {
+
+                opacity: 1;
+                transform: translateX(0)scale(1);
+            }
+
+            to {
+
+                opacity: 0;
+                transform: translateX(250px) scale(.92);
+            }
+        }
+
+
+        @keyframes entrarIzquierda {
+
+            from {
+
+                opacity: 0;
+                transform: translateX(-250px) scale(.92);
+
+            }
+
+            to {
+
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- =====================================================
+     MENÚ PRINCIPAL
+====================================================== -->
+    <nav id="menu">
+        <a href="index.html">Inicio</a>
+     
+    </nav>
+    <!-- =====================================================
+         TÍTULO
+    ===================================================== -->
+    <header class="titulo">
+        <h1>DATOS CURIOSOS</h1>
+        <p>
+            CRISTO DE LA CONCORDIA
+        </p>
+    </header>
+    <!-- =====================================================
+     CARRUSEL
+====================================================== -->
+    <main class="contenedor">
+        <!-- =================================================
+         FLECHA IZQUIERDA
+    ================================================== -->
+        <button class="flecha izquierda" id="anterior">
+            ‹
+        </button>
+        <!-- =================================================
+         CARRUSEL DE DATOS
+    ================================================== -->
+        <div class="carrusel">
+            <!-- =================================================
+             TARJETA ANTERIOR
+        ================================================== -->
+            <article class="tarjeta lateral izquierda" id="tarjetaAnterior">
+                <div class="imagen-tarjeta">
+                    <img id="imagenAnterior" src="cristoaltura.jpeg" alt="Dato anterior">
+                </div>
+                <div class="contenido">
+                    <span class="numero" id="numeroAnterior">
+                        DATO 08
+                    </span>
+                    <h2 id="tituloAnterior">
+                        DATO ANTERIOR
+                    </h2>
+                    <p id="descripcionAnterior">
+                        Descubre este dato curioso.
+                    </p>
+                </div>
+            </article>
+            <!-- =================================================
+             TARJETA CENTRAL
+        ================================================== -->
+            <article class="tarjeta central" id="tarjetaCentral">
+                <!-- IMAGEN -->
+                <div class="imagen-tarjeta">
+                    <img id="imagenDato" src="cristoaltura.jpeg" alt="Cristo de la Concordia">
+                </div>
+                <!-- INFORMACIÓN -->
+                <div class="contenido">
+                    <span class="numero" id="numeroDato">
+                        DATO 01
+                    </span>
+                    <h2 id="tituloDato">
+                        CUANTO MIDE
+                    </h2>
+                    <p id="descripcionDato">
+                        Descubre uno de los datos mas
+                        impresionantes del Cristo de
+                        la Concordia.
+                    </p>
+                    <!-- BOTÓN DETALLES -->
+                    <button class="btn-detalles" id="verDetalles">
+                        VER DETALLES
+                    </button>
+                </div>
+            </article>
+            <!-- =================================================
+             TARJETA SIGUIENTE
+        ================================================== -->
+            <article class="tarjeta lateral derecha" id="tarjetaSiguiente">
+
+
+                <div class="imagen-tarjeta">
+                    <img id="imagenSiguiente" src="construccion.jpg" alt="Dato siguiente">
+                </div>
+                <div class="contenido">
+                    <span class="numero" id="numeroSiguiente">
+                        DATO 02
+                    </span>
+                    <h2 id="tituloSiguiente">
+                        CUANDO FUE CONSTRUIDO
+                    </h2>
+                    <p id="descripcionSiguiente">
+                        Conoce este dato curioso.
+                    </p>
+                </div>
+            </article>
+        </div>
+        <!-- =================================================
+         FLECHA DERECHA
+    ================================================== -->
+        <button class="flecha derecha" id="siguiente">
+            ›
+        </button>
+    </main>
+    <!-- CONTADOR -->
+    <div class="contador">
+        01 / 08
+    </div>
+    <!-- =====================================================
+     PANEL DE DETALLES - DATO 01
+====================================================== -->
+
+    <div id="panelDetalles" class="panel-detalles">
+        <div class="detalle-contenido">
+            <!-- BOTÓN CERRAR -->
+            <button id="cerrarDetalles" class="cerrar-detalles">
+                ×
+            </button>
+
+            <!-- TÍTULO -->
+            <span class="detalle-numero">
+                DATO 01
+            </span>
+
+            <h2>
+                CUANTO MIDE EL CRISTO DE LA CONCORDIA
+            </h2>
+
+            <!-- LÍNEA DECORATIVA -->
+            <div class="linea-detalle"></div>
+            <!-- TEXTO QUE SE ESCRIBIRÁ -->
+            <p id="textoDetalle"></p>
+        </div>
+    </div>
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+        /* ==============================================
+           POR AHORA SOLO PREPARAMOS LOS BOTONES
+        ============================================== */
+        const anterior = document.getElementById("anterior");
+        const siguiente = document.getElementById("siguiente");
+        const verDetalles = document.getElementById("verDetalles");
+        /* =====================================================
+        DATOS DE LAS TARJETAS
+     ===================================================== */
+        const datos = [
+            /* =================================================
+               DATO 01
+            ================================================= */
+            {
+                numero: "DATO 01",
+                imagen: "cristoaltura.jpeg",
+                titulo: "CUANTO MIDE",
+                descripcion:
+                    "Descubre uno de los datos más impresionantes del Cristo de la Concordia.",
+                detalle:
+                    `El Cristo de la Concordia tiene una altura de
+34,20 metros.
+
+Si se incluye su pedestal de 6,24 metros,
+la altura total alcanza los 40,44 metros.
+
+Estas dimensiones hacen que el monumento
+destaque sobre el Cerro San Pedro y sea uno
+de los símbolos más reconocibles de Cochabamba.`
+            },
+            /* =================================================
+               DATO 02
+            ================================================= */
+
+            {
+                numero: "DATO 02",
+                imagen: "construcion.png",
+                titulo: "CUANDO FUE CONSTRUIDO",
+                descripcion:
+                    "Conoce cuándo comenzó y cuándo terminó la construcción de este impresionante monumento.",
+                detalle:
+                    `La construccion del Cristo de la Concordia
+comenzó el 12 de julio de 1987.
+
+El proyecto se desarrolló durante varios años
+hasta que la obra fue concluida el
+20 de noviembre de 1994.
+
+Durante este proceso se levanto uno de los
+monumentos más representativos de
+Cochabamba, ubicado en la cima del Cerro
+San Pedro.`
+            },
+            /* =================================================
+               DATO 03
+            ================================================= */
+            {
+                numero: "DATO 03",
+                imagen: "autorcristo.webp",
+                titulo: "QUIEN LO CONSTRUYO",
+                descripcion:
+                    "Conoce quién estuvo detras de la construccion de uno de los monumentos más importantes de Cochabamba.",
+                detalle:
+                    `El Cristo de la Concordia fue diseñado por
+los hermanos César y Walter Terrazas Pardo.
+
+La construcción del monumento fue impulsada
+como una obra representativa para la ciudad
+de Cochabamba.
+
+Su ubicación en el Cerro San Pedro permite
+que el monumento sea visible desde diferentes
+puntos de la ciudad.`
+            }
+            ,
+            /* =================================================
+               DATO 04
+            ================================================= */
+            {
+                numero: "DATO 04",
+                imagen: "sanpedro.png",
+                titulo: "DONDE ESTÁ UBICADO",
+                descripcion:
+                    "Descubre dónde se encuentra el Cristo de la Concordia y por qué su ubicación es tan especial.",
+                detalle:
+                    `El Cristo de la Concordia se encuentra
+en la cima del Cerro San Pedro,
+en la ciudad de Cochabamba, Bolivia.
+
+Su ubicación elevada permite observar
+gran parte de la ciudad y convierte al
+monumento en uno de los lugares
+turísticos más representativos de
+Cochabamba.`
+            }
+            ,
+            /* =================================================
+               DATO 05
+            ================================================ */
+            {
+                numero: "DATO 05",
+                imagen: "pesocristo.png",
+                titulo: "CUANTO PESA",
+                descripcion:
+                    "Descubre cuánto pesa aproximadamente la estructura del Cristo de la Concordia.",
+                detalle:
+                    `El Cristo de la Concordia está construido
+con una estructura de hormigón armado.
+
+Su gran tamaño y los materiales utilizados
+hacen que el monumento tenga un peso
+considerable.
+
+La estructura fue diseñada para soportar
+su enorme altura y permanecer firme sobre
+el Cerro San Pedro.`
+            },
+            /* =================================================
+               DATO 06
+            ================================================= */
+            {
+                numero: "DATO 06",
+                imagen: "vistaciudad.png",
+                titulo: "SE PUEDE VER DESDE TODA LA CIUDAD",
+                descripcion:
+                    "Su ubicación elevada permite que el Cristo sea visible desde numerosos puntos de Cochabamba.",
+                detalle:
+                    `Gracias a su ubicación en la cima del
+Cerro San Pedro, el Cristo de la Concordia
+puede observarse desde diferentes zonas
+de la ciudad de Cochabamba.
+
+Su gran tamaño y su posición elevada
+lo convierten en un punto de referencia
+visual para habitantes y visitantes.`
+            }
+            ,
+            /* =================================================
+               DATO 07
+            ================================================= */
+            {
+                numero: "DATO 07",
+                imagen: "escalones.png",
+                titulo: "CUANTOS ESCALONES TIENE",
+                descripcion:
+                    "Conoce uno de los detalles que forman parte del recorrido hacia el Cristo de la Concordia.",
+                detalle:
+                    `El acceso al Cristo de la Concordia
+incluye un recorrido por las escalinatas
+del Cerro San Pedro.
+
+El camino permite a los visitantes
+ascender hasta la zona donde se encuentra
+el monumento y disfrutar de diferentes
+vistas de la ciudad de Cochabamba.`
+            },
+            /* =================================================
+               DATO 08
+            ================================================= */
+            {
+                numero: "DATO 08",
+                imagen: "inaguracion.png",
+                titulo: "CUANDO FUE INAUGURADO",
+                descripcion:
+                    "Conoce la fecha en que el Cristo de la Concordia fue presentado oficialmente.",
+                detalle:
+                    `El Cristo de la Concordia fue inaugurado
+en el año 1994.
+
+Desde entonces se convirtió en uno de
+los principales símbolos turísticos y
+culturales de la ciudad de Cochabamba.
+
+Actualmente continúa siendo uno de los
+lugares más visitados y reconocidos de
+la ciudad.`
+            }
+        ];
+        /* =====================================================
+          CARRUSEL DE 3 TARJETAS
+       ===================================================== */
+        let tarjetaActual = 0;
+        let moviendo = false;
+
+        /* =====================================================
+           COLOCAR INFORMACIÓN EN UNA TARJETA
+        ===================================================== */
+        function colocarTarjeta(prefijo, indice) {
+            const dato = datos[indice];
+
+            document.getElementById("imagen" + prefijo).src = dato.imagen;
+
+            document.getElementById("numero" + prefijo).textContent = dato.numero;
+
+            document.getElementById("titulo" + prefijo).textContent = dato.titulo;
+
+            document.getElementById("descripcion" + prefijo).textContent = dato.descripcion;
+
+        }
+        /* =====================================================
+           ACTUALIZAR LAS 3 TARJETAS
+        ===================================================== */
+        function actualizarCarrusel() {
+            const izquierda = (tarjetaActual - 1 + datos.length) % datos.length;
+
+            const centro = tarjetaActual;
+
+            const derecha = (tarjetaActual + 1) % datos.length;
+
+            /* TARJETA IZQUIERDA */
+            colocarTarjeta("Anterior", izquierda);
+
+            /* TARJETA CENTRAL */
+            colocarTarjeta("Dato", centro);
+
+            /* TARJETA DERECHA */
+            colocarTarjeta("Siguiente", derecha);
+            /* CONTADOR */
+
+            document.querySelector(".contador").textContent = String(tarjetaActual + 1).padStart(2, "0") + " / " + String(datos.length).padStart(2, "0");
+        }
+        /* =====================================================
+           FLECHA DERECHA
+        ===================================================== */
+        siguiente.onclick = function () {
+
+            if (moviendo) {
+                return;
+            }
+
+            moviendo = true;
+
+            const tarjetaCentral = document.getElementById("tarjetaCentral");
+            const tarjetaDerecha = document.getElementById("tarjetaSiguiente");
+            const tarjetaIzquierda = document.getElementById("tarjetaAnterior");
+            /* CENTRAL SALE HACIA LA IZQUIERDA */
+            tarjetaCentral.style.transform = "translate(-50%,-50%) translateX(-450px) scale(.72)";
+
+            tarjetaCentral.style.opacity = "0";
+            /* DERECHA ENTRA AL CENTRO */
+            tarjetaDerecha.style.transform = "translateY(-50%) translateX(-300px) scale(1)";
+            tarjetaDerecha.style.opacity = "1";
+            /* IZQUIERDA SE MUEVE AL LADO DERECHO */
+            tarjetaIzquierda.style.transform = "translateY(-50%) translateX(300px) scale(.72)";
+
+            setTimeout(function () {
+
+                tarjetaActual++;
+
+                if (
+                    tarjetaActual >= datos.length
+                ) {
+
+                    tarjetaActual = 0;
+                }
+                actualizarCarrusel();
+                /* REINICIAR POSICIONES */
+                tarjetaCentral.style.transform = "";
+                tarjetaDerecha.style.transform = "";
+                tarjetaIzquierda.style.transform = "";
+
+
+                tarjetaCentral.style.opacity = "";
+
+                moviendo = false;
+
+            }, 600);
+
+        };
+
+        /* =====================================================
+           FLECHA IZQUIERDA
+        ===================================================== */
+        anterior.onclick = function () {
+
+            if (moviendo) {
+                return;
+            }
+            moviendo = true;
+
+            const tarjetaCentral = document.getElementById("tarjetaCentral");
+            const tarjetaIzquierda = document.getElementById("tarjetaAnterior");
+
+
+            const tarjetaDerecha = document.getElementById("tarjetaSiguiente");
+            /* ENTRAL SALE HACIA LA DERECHA */
+            tarjetaCentral.style.transform = "translate(-50%,-50%) translateX(450px) scale(.72)";
+            tarjetaCentral.style.opacity = "0";
+
+            /* IZQUIERDA ENTRA AL CENTRO */
+            tarjetaIzquierda.style.transform = "translateY(-50%) translateX(300px) scale(1)";
+            tarjetaIzquierda.style.opacity = "1";
+            /* DERECHA SE MUEVE AL LADO IZQUIERDO */
+            tarjetaDerecha.style.transform = "translateY(-50%) translateX(-300px) scale(.72)";
+
+
+            setTimeout(function () {
+
+                tarjetaActual--;
+                if (
+                    tarjetaActual < 0) {
+                    tarjetaActual = datos.length - 1;
+                }
+
+
+                actualizarCarrusel();
+                /* REINICIAR POSICIONES */
+                tarjetaCentral.style.transform = "";
+                tarjetaIzquierda.style.transform = "";
+                tarjetaDerecha.style.transform = "";
+
+                tarjetaCentral.style.opacity = "";
+                moviendo = false;
+            }, 600);
+        };
+        /* =====================================================
+           INICIAR CARRUSEL
+        ===================================================== */
+        actualizarCarrusel();
+        /* =====================================================
+           CONTROL CON TECLADO
+        ===================================================== */
+        document.addEventListener("keydown", function (event) {
+            /* FLECHA DERECHA DEL TECLADO */
+            if (event.key === "ArrowRight") {
+                siguiente.click();
+            }
+            /* FLECHA IZQUIERDA DEL TECLADO */
+            if (event.key === "ArrowLeft") {
+                anterior.click();
+            }
+        });
+        /* =====================================================
+     PANEL DE DETALLES - DATO 01
+  ===================================================== */
+        const panelDetalles = document.getElementById("panelDetalles");
+        const cerrarDetalles = document.getElementById("cerrarDetalles");
+        const textoDetalle = document.getElementById("textoDetalle");
+
+        /* =====================================================
+           FUNCIÓN PARA ESCRIBIR EL TEXTO
+        ===================================================== */
+        function escribirDetalle(texto, velocidad) {
+            textoDetalle.innerHTML = "";
+            let i = 0;
+
+
+            function escribir() {
+                if (i < texto.length) {
+                    textoDetalle.innerHTML +=
+                        texto.charAt(i);
+                    i++;
+                    setTimeout(escribir, velocidad);
+                }
+            }
+            escribir();
+        }
+
+        /* =====================================================
+           ABRIR DETALLES DE LA TARJETA ACTUAL
+        ===================================================== */
+        verDetalles.onclick = function () {
+            /* ==============================================
+               OBTENER LA TARJETA QUE ESTÁ MOSTRADA
+            ============================================== */
+            const datoActual = datos[tarjetaActual];
+            /* ==============================================
+               CAMBIAR NÚMERO DEL PANEL
+            ============================================== */
+            document.querySelector(".detalle-numero").textContent = datoActual.numero;
+            /* ==============================================
+               CAMBIAR TÍTULO DEL PANEL
+            ============================================== */
+            document.querySelector(".detalle-contenido h2").textContent = datoActual.titulo;
+            /* ==============================================
+               LIMPIAR TEXTO ANTERIOR
+            ============================================== */
+            textoDetalle.innerHTML = "";
+            /* ==============================================
+               ABRIR PANEL
+            ============================================== */
+            panelDetalles.classList.add("activo");
+            /* ==============================================
+               ESCRIBIR EL DETALLE DE ESA TARJETA
+            ============================================== */
+            escribirDetalle(
+                datoActual.detalle, 28);
+        };
+        /* =====================================================
+           CERRAR DETALLES
+        ===================================================== */
+        cerrarDetalles.onclick = function () {
+            panelDetalles.classList.remove("activo");
+        };
+        /* CERRAR HACIENDO CLIC FUERA */
+        panelDetalles.onclick = function (e) {
+            if (e.target === panelDetalles) {
+                panelDetalles.classList.remove("activo");
+            }
+        };
+    </script>
+</body>
+
+</html>
